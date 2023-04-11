@@ -1,0 +1,4 @@
+include resource-lister/menu/*.json
+recursive-include resource-lister *.json
+global-include *.json
+global-exclude *.pyc

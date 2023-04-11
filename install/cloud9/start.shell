@@ -1,0 +1,7 @@
+##SETTING UP ENVIROMENT VARIABLES
+echo "
+============================> SETTING UP ENVIROMENT VARIABLES <===========================================================================================================
+"
+export AWS_DEFAULT_REGION="us-east-1"
+python3 main.py
+

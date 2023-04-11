@@ -1,0 +1,102 @@
+import botocore
+import concurrent.futures
+from botocore.config import Config
+from resource_lister.boto_formatter.service_formatter import service_response_formatter
+from resource_lister.util.session_util import SessionHandler
+from resource_lister.util.s3_util import S3Uploader
+import logging
+import datetime
+logging.basicConfig(level=logging.ERROR)
+logger = logging.getLogger()
+
+
+def process(process_config):
+    accounts = process_config["accounts"]
+    regions = process_config["regions"]
+    service_name = process_config["service_name"]
+    function_name = process_config["function_name"]
+    attributes = process_config["attributes"]
+    attributes["pagination"] = "True"
+    pagination_attributes = None
+    current_date = datetime.datetime.now().strftime("%m/%d/%Y")
+    if "pagination_attributes" in process_config.keys():
+        pagination_attributes = process_config["pagination_attributes"]
+
+    object_list = []
+    # YES: generate seperate output file for each account
+    if attributes["account_split"].lower() == "yes":
+        for account in accounts:
+            object_list = []
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                # Start the load operations and mark each future with its URL
+                futures = {executor.submit(process_region_list_pagination, SessionHandler.get_new_session(account), account,
+                                           region, service_name, function_name, current_date, pagination_attributes): region for region in regions}
+                for future in concurrent.futures.as_completed(futures):
+                    try:
+                        object_list.append(future.result())
+                    except Exception as exc:
+                        logger.error(exc)
+            process_result(process_config, service_response_formatter(
+                service_name, function_name, object_list, attributes))
+# NO: Generate Consolidated output for all the accounts
+    else:
+        for account in accounts:
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                # Start the load operations and mark each future with its URL
+                futures = {executor.submit(process_region_list_pagination, SessionHandler.get_new_session(account), account,
+                                           region, service_name, function_name, current_date, pagination_attributes): region for region in regions}
+                for future in concurrent.futures.as_completed(futures):
+                    try:
+                        object_list.append(future.result())
+                    except Exception as exc:
+                        logger.error(exc)
+        process_result(process_config, service_response_formatter(
+            service_name, function_name, object_list, attributes))
+
+
+def process_region_list_pagination(_session, account, _region, service_name, function_name, current_date, pagination_attributes):
+    """Functions supported with Paginator"""
+    prefix_columns = dict()
+    prefix_columns["Account"] = account
+    prefix_columns["Region"] = _region
+    prefix_columns["Creation_Date"] = current_date
+    prefix_columns["service_name"] = service_name
+    prefix_columns["function_name"] = function_name
+    result = dict()
+    object_list = []
+    try:
+        service_func = _session.client(
+            service_name, config=Config(region_name=_region))
+        paginator = service_func.get_paginator(function_name)
+        page_iterator = None
+        if pagination_attributes:
+            # AccountId attribute would be changed to current account value
+            for key in pagination_attributes:
+                if key == "AccountId":
+                    pagination_attributes[key] = account
+
+            page_iterator = paginator.paginate(**pagination_attributes)
+        else:
+            page_iterator = paginator.paginate()
+        for page in page_iterator:
+            object_list.append(page)
+        result['prefix_columns'] = prefix_columns
+        result['result'] = object_list
+    except botocore.exceptions.ClientError as error:
+        logger.error("In valid attributes {}".format(pagination_attributes))
+        # Invalid attributes throws client errors
+        result['prefix_columns'] = prefix_columns
+        result['result'] = object_list
+    except botocore.exceptions.ParamValidationError as error:
+        logger.error(error)
+        raise ValueError(
+            'The parameters you provided are incorrect: {}'.format(error))
+    return result
+
+
+def process_result(process_config, result):
+    attributes = process_config["attributes"]
+    # boto_formatter understand only file or print
+    if attributes["output_to"] == "s3":
+        S3Uploader().upload_file(dict(process_config), result)
+    return result

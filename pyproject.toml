@@ -1,0 +1,29 @@
+
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resource-lister"
+version = "1.0.0"
+authors = [
+  { name="Abhijit Rajeshirke", email="rajeabh@amazon.com" },
+]
+description = "Resource Lister"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache-2.0",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "boto3>=1.15.0"
+]
+[project.scripts]
+resource_lister = "resource_lister.main:main"
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/resource-lister"
+"Bug Tracker" = "https://github.com/pypa/resource-lister/issues"

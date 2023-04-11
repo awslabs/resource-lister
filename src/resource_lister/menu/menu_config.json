@@ -1,0 +1,887 @@
+{
+    "menus": [
+        {
+            "menu_index": "lambda_list_functions",
+            "menu_help": "List of Lambda functions",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "lambda",
+            "function_name": "list_functions",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "lambda_list_layers",
+            "menu_help": "List of  Lambda layers ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "lambda",
+            "function_name": "list_layers",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_buckets",
+            "menu_help": "List of S3 buckets",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "s3",
+            "function_name": "list_buckets",
+            "implclass": "_global_no_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_objects_v2",
+            "menu_help": "List of the objects in a S3 Bucket",
+            "is_multi_account_support": "no",
+            "is_regional": "no",
+            "service_name": "s3",
+            "function_name": "list_objects_v2",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "Bucket",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The name of the bucket containing the objects"
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "iam_list_roles",
+            "menu_help": "List of IAM Roles",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "iam",
+            "function_name": "list_roles",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "iam_list_policies",
+            "menu_help": " List of Managed policies (AWS and Your owned)",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "iam",
+            "function_name": "list_policies",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "iam_list_users",
+            "menu_help": " List of IAM users",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "iam",
+            "function_name": "list_users",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "orgnizations_list_accounts",
+            "menu_help": " List of accounts in the organization ",
+            "is_multi_account_support": "no",
+            "is_regional": "no",
+            "service_name": "organizations",
+            "function_name": "list_accounts",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "orgnizations_list_policies",
+            "menu_help": " List of Service Control Policies (SCP) in an organization ",
+            "is_multi_account_support": "no",
+            "is_regional": "no",
+            "service_name": "organizations",
+            "function_name": "list_policies",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "Filter",
+                    "attribute_value": "SERVICE_CONTROL_POLICY",
+                    "is_visible": "No",
+                    "display_prompt": ""
+                }
+            ]
+        },
+        {
+            "menu_index": "describe_instances",
+            "menu_help": "List of EC2 instances ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_instances",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_vpcs",
+            "menu_help": "List of VPCs",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_vpcs",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_volumes",
+            "menu_help": "List of EBS volumes",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_volumes",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_flow_logs",
+            "menu_help": "List of flow logs ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_flow_logs",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_network_acls",
+            "menu_help": "List of Network ACLs",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_network_acls",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_route_tables",
+            "menu_help": "List of Route tables",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_route_tables",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_security_groups",
+            "menu_help": "List of Security Groups",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_security_groups",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_security_group_rules",
+            "menu_help": "List of Security Group Rules",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_security_group_rules",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_snapshots",
+            "menu_help": "List of all the snapshots (self taken)",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_snapshots",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "OwnerIds",
+                    "attribute_value": [
+                        "self"
+                    ],
+                    "is_visible": "No",
+                    "display_prompt": ""
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_subnets",
+            "menu_help": "List of Subnets",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_subnets",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_transit_gateways",
+            "menu_help": "List of Transit Gateways (TGW)",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_transit_gateways",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_vpc_endpoints",
+            "menu_help": "List of VPC endpoints",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_vpc_endpoints",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_vpc_peering_connections",
+            "menu_help": "List of all the VPC Peering connections",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_vpc_peering_connections",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "describe_vpn_connections",
+            "menu_help": "List of VPN connections",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_vpn_connections",
+            "implclass": "_regional_no_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "budget",
+            "menu_help": "List of budgets",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "budgets",
+            "function_name": "describe_budgets",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "AccountId",
+                    "attribute_value": "default",
+                    "is_visible": "No",
+                    "display_prompt": ""
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_clusters",
+            "menu_help": "List of Provisioned EMR Clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr",
+            "function_name": "list_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_notebook_executions",
+            "menu_help": "List of notebook executions.",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr",
+            "function_name": "list_notebook_executions",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_studios",
+            "menu_help": "List of all the EMR Studios ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr",
+            "function_name": "list_studios",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_instance_fleets",
+            "menu_help": "List of Instance fleets for specific EMR cluster",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr",
+            "function_name": "list_instance_fleets",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "ClusterId",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "Please enter the unique identifier of the cluster"
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_cidr_blocks",
+            "menu_help": "List of all the Route53 CIDRs ",
+            "is_multi_account_support": "Yes",
+            "is_regional": "No",
+            "service_name": "route53",
+            "function_name": "list_cidr_blocks",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "CollectionId",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "CollectionId The UUID of the CIDR collection."
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_hosted_zones",
+            "menu_help": "List of hosted zones(public and private)",
+            "is_multi_account_support": "Yes",
+            "is_regional": "No",
+            "service_name": "route53",
+            "function_name": "list_hosted_zones",
+            "implclass": "_global_no_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_hosted_zones_by_vpc",
+            "menu_help": "List of  private hosted zones associated with specified VPC",
+            "is_multi_account_support": "No",
+            "is_regional": "No",
+            "service_name": "route53",
+            "function_name": "list_hosted_zones_by_vpc",
+            "implclass": "_global_no_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "VPCId",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The ID of the Amazon VPC that you want to list hosted zones"
+                },
+                {
+                    "attribute_name": "VPCRegion",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The Amazon Web Services Region that you created the VPC in."
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "list_trails",
+            "menu_help": "List of  Cloud Trails",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudtrail",
+            "function_name": "list_trails",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "ecs_list_clusters",
+            "menu_help": "List of ECS clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ecs",
+            "function_name": "list_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "ecs_list_services",
+            "menu_help": "List of  ECS Services in specified ECS Cluster",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ecs",
+            "function_name": "list_services",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "cluster",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The short name or full Amazon Resource Name (ARN) of the cluster "
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "ecs_list_tasks",
+            "menu_help": "List ECS Tasks in specified ECS Cluster",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ecs",
+            "function_name": "list_list_tasks",
+            "implclass": "_regional_paginate",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "cluster",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The short name or full Amazon Resource Name (ARN) of the cluster "
+                }
+            ],
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "eks_describe_cluster",
+            "menu_help": "Describe details of specified EKS Cluster",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "eks",
+            "function_name": "describe_cluster",
+            "implclass": "_regional_no_paginate",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "name",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "Name of EKS Cluster "
+                }
+            ],
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "eks_list_clusters",
+            "menu_help": "List of EKS Clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "eks",
+            "function_name": "list_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "eks_list_fargate_profiles",
+            "menu_help": "List EKS Fargate profiles in specified EKS Cluster",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "eks",
+            "function_name": "list_fargate_profiles",
+            "implclass": "_regional_paginate",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "clusterName",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "Name of EKS Cluster "
+                }
+            ],
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "elbv2_describe_load_balancers",
+            "menu_help": "List of load balancers (Application, Network) ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "elbv2",
+            "function_name": "describe_load_balancers",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "emr-serverless_list_applications",
+            "menu_help": "List of EMR Serverless applications",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr-serverless",
+            "function_name": "list_applications",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "emr-serverless_list_job_runs",
+            "menu_help": "List of EMR Serverless Job runs for specified EMR serverless application",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "emr-serverless",
+            "function_name": "list_job_runs",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "applicationId",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The ID of the application for which to list the job run"
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "rds_describe_db_clusters",
+            "menu_help": "List of Aurora DB clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "rds",
+            "function_name": "describe_db_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "rds_describe_db_instances",
+            "menu_help": "List of provisioned RDS instances ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "rds",
+            "function_name": "describe_db_instances",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "rds_describe_db_security_groups",
+            "menu_help": "List  of DB Security Groups",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "rds",
+            "function_name": "describe_db_security_groups",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "rds_describe_db_snapshots",
+            "menu_help": "List of Database Sanpshots",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "rds",
+            "function_name": "describe_db_snapshots",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "rds_describe_global_clusters",
+            "menu_help": "List of Global aurora clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "rds",
+            "function_name": "describe_global_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "kms_list_keys",
+            "menu_help": "List of KMS keys",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "kms",
+            "function_name": "list_keys",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "redshift_describe_clusters",
+            "menu_help": "List of Redshift clusters",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "redshift",
+            "function_name": "describe_clusters",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "redshift-serverless-List Name spaces",
+            "menu_help": "List of Redshift serverless namespaces",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "redshift-serverless",
+            "function_name": "list_namespaces",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "redshift-serverless-List Work groups",
+            "menu_help": "List of Redshift serverless workgroups",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "redshift-serverless",
+            "function_name": "list_workgroups",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sns_list_subscriptions",
+            "menu_help": "List of SNS subscriptions",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sns",
+            "function_name": "list_subscriptions",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sns_list_topics",
+            "menu_help": "List of SNS topics",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sns",
+            "function_name": "list_topics",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sqs_list_topics",
+            "menu_help": "List of SQS queues",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sqs",
+            "function_name": "list_queues",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "accessanalyzer_list_analyzers",
+            "menu_help": "List of IAM Analyzers",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "accessanalyzer",
+            "function_name": "list_analyzers",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "accessanalyzer_list_findings",
+            "menu_help": "List of findings for specified  IAM Analyzer",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "accessanalyzer",
+            "function_name": "list_findings",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "analyzerArn",
+                    "attribute_value": "",
+                    "is_visible": "Yes",
+                    "display_prompt": "The ARN of the analyzer to retrieve findings from"
+                }
+            ],
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "cloudfront_list_distributions",
+            "menu_help": "List of CloudFront distributions",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudfront",
+            "function_name": "list_distributions",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "cloudfront_list_list_functions",
+            "menu_help": "List of CloudFront functions",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudfront",
+            "function_name": "list_functions",
+            "implclass": "_regional_no_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "dynamodb_list_tables",
+            "menu_help": "List of DynamoDB tables",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "dynamodb",
+            "function_name": "list_tables",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "cloudwatch_list_dasboards",
+            "menu_help": "List of Cloudwatch Dashboards",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudwatch",
+            "function_name": "list_dashboards",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "cloudwatch_list_metrics",
+            "menu_help": "List of Cloudwatch Metrics",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudwatch",
+            "function_name": "list_metrics",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "efs_describe_file_systems",
+            "menu_help": "List of EFS",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "efs",
+            "function_name": "describe_file_systems",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "codecommit_list_repositories",
+            "menu_help": "List of Code commit Repositories",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "codecommit",
+            "function_name": "list_repositories",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "route53domains_list_domains",
+            "menu_help": "List of Route53 Domains",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "route53domains",
+            "function_name": "list_domains",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "route53domains_list_prices",
+            "menu_help": "Info of Route53 Domain pricing",
+            "is_multi_account_support": "yes",
+            "is_regional": "no",
+            "service_name": "route53domains",
+            "function_name": "list_prices",
+            "implclass": "_global_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "cloudformation_list_stacks",
+            "menu_help": "List of Cloudformation Stacks",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "cloudformation",
+            "function_name": "list_stacks",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sagemaker",
+            "menu_help": "List of SageMaker Domains",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sagemaker",
+            "function_name": "list_domains",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sagemaker",
+            "menu_help": "List of SageMaker Images",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sagemaker",
+            "function_name": "list_images",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sagemaker",
+            "menu_help": "List of SageMaker Models",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sagemaker",
+            "function_name": "list_models",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sagemaker",
+            "menu_help": "List of SageMaker Projects",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sagemaker",
+            "function_name": "list_projects",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
+            "menu_index": "sagemaker",
+            "menu_help": "List of SageMaker User Profiles",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "sagemaker",
+            "function_name": "list_user_profiles",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        }
+        
+    ]
+}

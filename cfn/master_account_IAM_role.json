@@ -1,0 +1,107 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "IAM session Manager Utility : Master account role creation template ",
+    "Parameters": {
+        "MasterAccountRoleName": {
+            "Type": "String",
+            "Default": "session_mgr",
+            "Description": "Master Account Role Name"
+        },
+        "ChildAccountRole": {
+            "Type": "String",
+            "Default": "iam_session_mgr_util",
+            "Description": "Child Account Assume Role Name"
+        }
+    },
+    "Resources": {
+        "MyIAMRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "Description": "Master Account Role for IAM Session Manager",
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AWSCloud9EnvironmentMember",
+                    "arn:aws:iam::aws:policy/ReadOnlyAccess",
+                    "arn:aws:iam::aws:policy/AWSCloud9User",
+                    "arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile",
+                    "arn:aws:iam::aws:policy/AWSCloud9Administrator"
+                ],
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "assume_policy_iam_session_mgr_util",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Resource": [
+                                        {
+                                            "Fn::Join": [
+                                                "/",
+                                                [
+                                                    "arn:aws:iam::*:role",
+                                                    {
+                                                        "Ref": "ChildAccountRole"
+                                                    }
+                                                ]
+                                            ]
+                                        }
+                                    ],
+                                    "Action": "sts:AssumeRole"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "RoleName": {
+                    "Ref": "MasterAccountRoleName"
+                }
+            }
+        },
+        "MyInstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "InstanceProfileName": {
+                    "Ref": "MasterAccountRoleName"
+                },
+                "Path": "/",
+                "Roles": [
+                    {
+                        "Ref": "MyIAMRole"
+                    }
+                ]
+            }
+        }
+    },
+    "Outputs": {
+        "MasterAccountIAMRoleOut": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "MyIAMRole",
+                    "Arn"
+                ]
+            }
+        },
+        "ChildAccountIAMRoleOut": {
+            "Value": {
+                "Ref": "ChildAccountRole"
+            }
+        }
+    }
+}

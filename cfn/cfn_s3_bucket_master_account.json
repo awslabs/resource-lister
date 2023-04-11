@@ -1,0 +1,117 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Sample Template is to simulate HUB account enviornment.",
+    "Parameters": {
+        "masteraccountrole": {
+            "Type": "String",
+            "Default": "",
+            "Description": " Master Account IAM Role ARN"
+        }
+    },
+    "Resources": {
+        "CFNS3Bucket": {
+            "Type": "AWS::S3::Bucket"
+        },
+        "CFNBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "Bucket": {
+                    "Ref": "CFNS3Bucket"
+                },
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Ref": "masteraccountrole"
+                                }
+                            },
+                            "Action": [
+                                "s3:GetObject",
+                                "s3:PutObject",
+                                "s3:PutObjectAcl"
+                            ],
+                            "Resource": {
+                                "Fn::Join": [
+                                    "/",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "CFNS3Bucket",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "*"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "MyPolicy": {
+            "Type": "AWS::IAM::Policy",
+            "Properties": {
+                "PolicyName": "s3_bucket_access",
+                "Roles": [
+                    {
+                        "Fn::Select": [
+                            "1",
+                            {
+                                "Fn::Split": [
+                                    "/",
+                                    {
+                                        "Ref": "masteraccountrole"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                
+            ],
+            "PolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Action": [
+                            "s3:PutObject",
+                            "s3:GetObject",
+                            "s3:DeleteObject"
+                        ],
+                        "Resource": [
+                            {
+                                "Fn::Join": [
+                                    "/",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "CFNS3Bucket",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "*"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+},
+"Outputs": {
+    "S3BUCKETAWSKMS": {
+        "Value": {
+            "Fn::GetAtt": [
+                "CFNS3Bucket",
+                "Arn"
+            ]
+        }
+    }
+}
+}

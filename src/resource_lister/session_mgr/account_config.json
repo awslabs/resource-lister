@@ -1,0 +1,10 @@
+{
+    "master_account": {
+        "account_id": "",
+        "account_description": "",
+        "account_config_type": "",
+        "master_account_role_arn": "",
+        "child_account_assume_role_name":"",
+        "email": ""
+    }
+}
