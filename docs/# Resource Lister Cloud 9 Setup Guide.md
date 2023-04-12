@@ -14,17 +14,17 @@ You can use existing master /child account setup or create new roles.
 
 If you already have AWS Organization setup with Master /Child accounts Roles you can re-use the existing Master Account Role Child Account Roles.  Please note existing Master Account IAM Role should have Cloud9 Permission. You can attach following managed policy to existing Master Account Roles to get Cloud9 permissions.
 
-1. AWSCloud9EnvironmentMember
-2. ReadOnlyAccess
-3. AWSCloud9User
-4. AWSCloud9SSMInstanceProfile
-5. AWSCloud9Administrator
+AWSCloud9EnvironmentMember
+ReadOnlyAccess
+AWSCloud9User
+AWSCloud9SSMInstanceProfile
+AWSCloud9Administrator
 
 **Option 2: Create new Master Account /Child Account Roles**
 
-Download the cloudformation template from github
+Download the cloudformation template from Github
 
-https://github.com/awslabs/resource-lister/blob/main/cfn/master_account_IAM_role.json
+https://github.com/awslabs/resource-lister/-/blob/main/cfn/master_account_IAM_role.json
 
 Go to Cloudformation and create stack with new resources
 
@@ -136,7 +136,7 @@ Copy following commands
 
 
 ```
-wget -q https://github.com/awslabs/resource-lister/blob/main/install/cloud9/setup.shell > /dev/null
+wget -q https://github.com/awslabs/resource-lister/tree/main/install/cloud9/setup.shell > /dev/null
 
 chmod 777 setup.shell
 
@@ -231,7 +231,7 @@ Go to resource-lister--> output--> click on s3_list_buckets_<date>.csv file
 
 
 
-## Step 5.2 :  Verify child accounts are configured correctly
+## Step 5.2 :  Verify child account is configured correctly
 
 - Type in **0** and press ENTER to exit Manage AWS Account Menu
 - Type in **2** and press ENTER in  Help Menu
@@ -241,88 +241,5 @@ Go to resource-lister--> output--> click on s3_list_buckets_<date>.csv file
 Utility will display all the child accounts configured
 <p align="center">
   <img src="../imgs/c9_setup/c9_setup_5_2.PNG"  title="Utility Interface">
-
-
-## Step 5.3 :  Verify childs accounts data is generated 
-
-- Type in **0** and press ENTER to exit Help Menu
-- In Main Menu (ENTER AWS Service for help (help) for exit (0) type in **S3** and press ENTER
-- Type in **1** for List of S3 buckets and press ENTER
-- Type in **ALL** for all the accounts and press ENTER
-
-Utility will create **output** folder and create file for list of s3 buckets.
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_4_3.PNG"  title="Utility Interface">
-
-Go to resource-lister--> output--> click on s3_list_buckets_<date>.csv file and verify all the configured accounts s3 buckets are listed
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_4_4.PNG"  title="Utility Interface">
-
-</details>
-
-
-<details>
-
-  <summary># Step 6 (Optional):  Change output to S3 bucket </summary>
-
-## Step 6:  Change output to S3 bucket
-
-## Step 6.1 :  Create S3 bucket 
-
-Download the cloudformation template from Github
-
-https://github.com/awslabs/resource-lister/blob/main/cfn/cfn_s3_bucket_master_account.json
-
-Go to Cloudformation and create stack with new resources and select the downloaded template
-
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_0.PNG"  title="Utility Interface">
-
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_0_1.PNG"  title="Utility Interface">
-
-Enter master account role arn and click next /next and create the stack.
-Clouformation stack will create new S3 bucket . Master account IAM role will have write permissions to this new S3 bucket. 
-
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_6_1.PNG"  title="Utility Interface">
-
-Copy the S3 bucket Name
-
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_6_2.PNG"  title="Utility Interface">
-
-## Step 6.2 :  Configure S3 bucket name
-
-- Type in **help** and press ENTER
-- Type in **6** for [Manage Configurations (example : format_type, output_type)] press ENTER
-- Type in **6** for [Modify S3 Bucket Name] and press ENTER
-- Type in **S3 Bucket Name (Created in step 6.1)** and press ENTER
-- Press any Key to continue (Press ENTER)
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_6_3.PNG"  title="Utility Interface">
-
-## Step 6.3 :  Configure output to S3 (instead of file)
-
-- Type in **3** for [Modify  Output To (print/file/s3).] press ENTER
-- Type in **s3** and press ENTER
-
-verify the output type updated to **s3** and S3 Bucket Name updated properly
-
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_6_4.PNG"  title="Utility Interface">
-
-
-## Step 6.4 : Verify results generated on S3
-
-- Type in **0** and press ENTER to exit Help Menu
-- In Main Menu (ENTER AWS Service for help (help) for exit (0) type in **S3** and press ENTER
-- Type in **1** for List of S3 buckets and press ENTER
-- Type in **ALL** for all the accounts and press ENTER
-
-Utility will generate the file on configured s3 bucket 
-<p align="center">
-  <img src="../imgs/c9_setup/c9_setup_6_5.PNG"  title="Utility Interface">
-
 
 </details>
