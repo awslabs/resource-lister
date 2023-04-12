@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resource-lister"
-version = "1.0.0"
+version = "2.0.0"
 authors = [
   { name="Abhijit Rajeshirke", email="rajeabh@amazon.com" },
 ]
@@ -14,16 +14,13 @@ readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: Apache-2.0",
+    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
 ]
 
-dependencies = [
-    "boto3>=1.15.0"
-]
 [project.scripts]
 resource_lister = "resource_lister.main:main"
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/resource-lister"
-"Bug Tracker" = "https://github.com/pypa/resource-lister/issues"
+"Homepage" = "https://github.com/awslabs/resource-lister"
+"Bug Tracker" = "https://github.com/awslabs/resource-lister/issues"

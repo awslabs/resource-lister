@@ -26,10 +26,10 @@ mkdir ~/environment/resource-lister > /dev/null
 
 cd ~/environment/resource-lister
 echo "Downloading main.py"
-wget -q https://github.com/awslabs/resource-lister/tree/main/install/main.py > /dev/null
+wget -q https://github.com/awslabs/resource-lister/blob/main/install/main.py > /dev/null
 
 echo "Downloading start.shell"
-wget -q https://github.com/awslabs/resource-lister/tree/main/install/cloud9/start.shell > /dev/null
+wget -q https://github.com/awslabs/resource-lister/blob/main/install/cloud9/start.shell > /dev/null
 
 
 chmod 777 start.shell

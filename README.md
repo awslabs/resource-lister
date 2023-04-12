@@ -60,10 +60,10 @@ Install resource-lister
 pip install resource-lister
 ```
 # setup
-[Cloud9 setup](https://github.com/awslabs/resource-lister/-/blob/main/docs/cloud_9_setup.md)
+[Cloud9 setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
 
 # Help
-[General help](https://github.com/awslabs/resource-lister/-/blob/main/docs/help_guide.md)
+[General help](https://github.com/awslabs/resource-lister/blob/main/docs/help_guide.md)
 
 
 # Supported Services and Functionality 
