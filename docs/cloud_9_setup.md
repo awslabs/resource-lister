@@ -10,6 +10,12 @@ To Configure resource-lister you need
  2. Child Account Role Name 
 You can use existing master /child account setup or create new roles.
 
+At High level process will look as followed 
+<p align="center">
+  <img src="../imgs/c9_setup/c9_setup_0_0.PNG"  title="Utility Interface">
+
+
+
 **Option 1: Use existing Master /Child Account Setup** 
 
 If you already have AWS Organization setup with Master /Child accounts Roles you can re-use the existing Master Account Role Child Account Roles.  Please note existing Master Account IAM Role should have Cloud9 Permission. You can attach following managed policy to existing Master Account Roles to get Cloud9 permissions.
@@ -20,7 +26,7 @@ If you already have AWS Organization setup with Master /Child accounts Roles you
 4. AWSCloud9SSMInstanceProfile
 5. AWSCloud9Administrator
 
-**Option 2: Create new Master Account /Child Account Roles**
+**Option 2: Create new Master Account /Child Account Roles using Utility provided Cloudformation templates**
 
 Download the cloudformation template from github
 
@@ -185,7 +191,11 @@ You will see utility disclaimer and main menu
 - Type in **Master Account IAM role** and press ENTER
 - Type in **1** for default credentials and press ENTER
 - Type in **Child Account Role Name** and press ENTER
-Utility will generate the Cloudformation template for child account. Utility will prompt the message Master Account is successfully configured
+
+
+Note here :
+Utility will prompt that Master Account is successfully configured
+Uutility also generates the Cloudformation template for child account **cfn_child_account_template.json** .
 
 
 <p align="center">
@@ -225,6 +235,9 @@ Go to resource-lister--> output--> click on s3_list_buckets_<date>.csv file
 - Type in **4** for Configure child Accounts and press ENTER
 - Type in **Comma seperated child accounts** and press ENTER
 - Press any Key to continue (Press ENTER)
+
+
+If your using option2 i.e utility provided cloudformation template to create master account role . You **must** need to run the cloudformation template **cfn_child_account_template.json** in each configured child accounts.The cloudformation template **cfn_child_account_template.json**  is generatd in when you setup a master account in previous step.
 
 <p align="center">
   <img src="../imgs/c9_setup/c9_setup_5_1.PNG"  title="Utility Interface">

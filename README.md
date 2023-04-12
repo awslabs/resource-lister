@@ -39,7 +39,14 @@ You can also run the utility in batch mode across all the services in selected A
 <p align="center">
   <img src="imgs/02_utility_output.PNG"  title="Utility Interface">
 
+# Prerequisite
+1. python3
+2. boto3
+
+
 # Installation
+
+
 
 **resource-lister** is distributed on PyPI. Easiest way to install it is with pip
 Create a virtual environment (optional):
@@ -59,8 +66,35 @@ Install resource-lister
 ```
 pip install resource-lister
 ```
+
+# Run Resource Lister Utility
+
+Download main.py from github
+
+https://github.com/awslabs/resource-lister/blob/main/install/main.py
+
+Run main.py python file with below command
+
+```
+python3 main.py
+```
+
+Utility will open in command prompt
+
+<p align="center">
+  <img src="imgs/05_install_01.PNG"  title="Utility Interface">
+
 # setup
-[Cloud9 setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
+
+Click on enviornment specific installation setup.
+
+- [Cloud9 setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
+
+- [Cloudshell setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
+
+- [Desktop setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
+
+
 
 # Help
 [General help](https://github.com/awslabs/resource-lister/blob/main/docs/help_guide.md)
@@ -353,7 +387,9 @@ This library is licensed under the Apache-2.0. See the LICENSE file.
 Resource-Lister creates boto3 sessions (master and child accounts) and invokes list APIs for the service you selected to list resources. These API calls will be applied to your account API Quotas. 
 If you configured Resource-lister for multiple accoutns.You can use existing master and child account roles or create new roles.
 If you decided to create new roles, You need to run cloudformation template in child account , cloudformation template will create IAM role in child account with read only permissions,this role will be assumed by master account.   
+Utility currrenlty supports only 70 functions. If you are interested in addtional functions /features, Please raise issue.
 
 # Know issues
 Improvements in error handling messages
+
 

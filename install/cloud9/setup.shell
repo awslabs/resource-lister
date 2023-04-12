@@ -37,7 +37,7 @@ chmod 777 main.py
 
 sudo pip3 install boto3 --quiet
 echo "boto3 installed "
-sudo pip3 install boto-formatter --quiet
+sudo pip3 install resource-lister --quiet 
 echo "resource-lister installed "
 
 echo "============================> Setup Complete <==============================================================================================================="

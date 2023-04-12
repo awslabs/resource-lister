@@ -16,7 +16,7 @@ OUTPUT_DIVIDER = '''
 
 DISCLAIMER = '''
 DISCLAIMER :
-This is experimental NO CODE Python Intractive Utility to list AWS resources 
+This is  NO CODE Python Intractive Utility to list AWS resources 
 across AWS Accounts.
 WARNING :
 To generate the list of AWS Resources Utility will make boto3  List API calls 
