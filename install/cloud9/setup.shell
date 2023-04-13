@@ -35,9 +35,9 @@ wget -q https://github.com/awslabs/resource-lister/blob/main/install/cloud9/star
 chmod 777 start.shell
 chmod 777 main.py
 
-sudo pip3 install boto3 --quiet
+pip3 install boto3 --quiet
 echo "boto3 installed "
-sudo pip3 install resource-lister --quiet 
+pip3 install resource-lister --quiet 
 echo "resource-lister installed "
 
 echo "============================> Setup Complete <==============================================================================================================="
