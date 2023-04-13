@@ -31,7 +31,6 @@ wget -q https://github.com/awslabs/resource-lister/blob/main/install/main.py > /
 echo "Downloading start.shell"
 wget -q https://github.com/awslabs/resource-lister/blob/main/install/cloud9/start.shell > /dev/null
 
-
 chmod 777 start.shell
 chmod 777 main.py
 
