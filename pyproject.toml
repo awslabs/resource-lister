@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resource-lister"
-version = "1.0.0"
+version = "1.1.0"
 authors = [
   { name="Abhijit Rajeshirke", email="rajeabh@amazon.com" },
 ]
@@ -16,6 +16,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "boto3>=1.15.0"
 ]
 
 [project.scripts]

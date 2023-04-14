@@ -1,36 +1,49 @@
 #  Resource Lister (Multi Accounts)
-Resource Lister is  open source, interactive, python-based command line **NO CODE** utility. Resource Lister can generate list of AWS resources in single or multiple accounts in consumable CSV, or flatten JSON format in near real time. Resource Lister uses boto3 sessions and underlying List APIs to connect multiple configured child accounts and generate the list. Resource Lister also provides an option to output generated list to command line, file ,and s3.
-Multi Account Resource Lister can be configured to run from Cloud9, EC2 or from your local laptop.
+Resource Lister is an open source, **NO CODE**, interactive, python-based command line utility. Resource Lister can generate list of AWS resources (for **supported services**) in single or multiple accounts in consumable CSV, or flatten JSON format. Resource Lister uses AWS SDK for Python(Boto3) sessions and underlying Boto3 List APIs to connect multiple configured child accounts and generate the  resource list. It essentially **simplifies** accessing of Boto3 list APIs. Resource Lister also provides an option to send generated list to  file,  s3, or print on command line.
+Resource Lister can be configured to run from Cloud9, Cloudshell, EC2 or from your machine.
 
-# Usage : 
+# Usage: 
 
-Resource lister utility is open source interactive command line tool for Developers, Solution Architect, Account Owners, Cloud Ops team or anyone who wants to simply list AWS Resources (for **supported services**) in an account or multiple accounts in consumable format like .csv without writing a code 
+Resource Lister Utility can be helpful to addresses following usecase
 
-Cloud Operation team can generate inventory of AWS resources in near real time accorss accounts and across regions for **supported services** without writing any code.
+* Resource Lister is handy utility for Developers, Solution Architect, Account Owners, Cloud Ops team or anyone who simply wants to generate list of AWS Resources (for **supported services**) across accounts and across regions without writing any custom code. 
 
-Operation team can identify which AWS accounts doesn't have budget setup.
+* Utility can help generate list of inventory of AWS resources across region and across accounts in near real time. For example, operation team wants to verify there is no lambda function created in restricted regions in near real time. You can also run the utility in batch mode across all the configured AWS services and create inventory.
 
-Utility can help generate list in particular account/region and then you can filter particular type of resource like lambda function using python 2.6 version.
+* Utility can help enforce budgetary constraints. For example, utility can help Account owners to identify which AWS accounts doesn't have AWS budget setup.
 
-Resource list generated through utility is with 99% of attributes which python SDK sends back (Including configured Tags for the resource), Manually getting and formatting all the attributes and formatting in tabular/columnize format specifically .csv is tedious task utility does it for you.
+* Utility can help identify particular type of list of resources.
+for example, you can generate list of lambda function and filter lambda function using python 2.6 version.
+
+* Utility flattens the response in consumable csv format.
+
+
+
+
 
 
 # How it works?
 
-Run the utility 
-Utility will start interactive Python session.
+<p align="center">
+  <img src="imgs/0_utility_interface.PNG"  title="Utility Interface">
 
-**Step 1**:  Utility will prompt you to select the AWS Service for example S3,lambda or ec2 etc..
+After you install and configure the Resource Lister you can run the Resource lister utility using pipx run.
 
-**Step 2** : Utility will display number of supported functions for selected AWS service . You chose a perticular function for example  **List of S3 Buckets **
+```
+pipx run resource_lister
+```
 
-**Step 3** : Utility will prompt you to select AWS Account for which you want list of AWS resources, you can select ALL accounts by entering ALL or specify comma seperated list of accounts
 
-**Step 4** : If it's regional resource (example Lambda) you will promopt to select AWS Region ; you can select ALL for all the regions or specify comma seperated list of regions
 
-**Step 5**: Finally, utility will generate the list of AWS Resources for selected Accounts and Regions send the output to File or S3 Bucket or Print on command prompt depending upon your configuration.
+**1** .  **Select AWS Service** : Resource Lister Utility will prompt you to select the AWS Service: You can select any of 27 services example S3, lambda or ec2
 
-You can also run the utility in batch mode across all the services in selected AWS Account 
+**2** .  **Select Function**: Resource Lister Utility will display number of supported functions for selected AWS service: Example List of S3 buckets or List of Aurora DB clusters or List of Lambda functions depending upon service you selected.
+
+**3** . **Select Account(s)**: Resource Lister Utility will prompt you to select AWS Account for which you want to generate list of AWS resources:  You can enter ALL to select all the accounts or you can enter single account or comma separated list of accounts. If you don’t know the account number you just press ENTER and utility will prompt you with list of configured accounts. 
+
+**4** . **Select Region(s) for Regional services**: If it's regional resource (example Lambda) you will prompt to select AWS Region; you can select ALL for all the regions or specify comma separated list of regions
+
+**5** . **Result**: Resource lister utility will then generates the list of AWS Resources for selected accounts and regions send the output to file or S3 Bucket or print on command prompt depending upon your configuration.
 
 <p align="center">
   <img src="imgs/01_utility_interface.PNG"  title="Utility Interface">
@@ -39,68 +52,133 @@ You can also run the utility in batch mode across all the services in selected A
 <p align="center">
   <img src="imgs/02_utility_output.PNG"  title="Utility Interface">
 
-# Prerequisite
-1. python3
-2. boto3
 
+
+**Note** : You can also run the utility in batch mode across all the services in selected AWS Account by going to help --> option # 6
+
+
+# Prerequisite
+1. [Python](https://www.python.org/)
 
 # Installation
 
+You can install and run **Resource lister** using [pipx](https://pypa.github.io/pipx/)
 
-
-**resource-lister** is distributed on PyPI. Easiest way to install it is with pip
-Create a virtual environment (optional):
-
+**On macOS, Linux, install via pip (requires pip 19.0 or later)**
 ```
-python3 -m venv .venv
-
+python3 -m pip install  pipx
+python3 -m pip install  boto3
+python3 -m pipx install resource-lister
 ```
-Activate enviornment
+**On Windows, install via pip (requires pip 19.0 or later)**
 
+If you installed python using the app-store, replace `python` with `python3` in the next line.
 ```
-source .venv/bin/activate
-```
-
-Install resource-lister
-
-```
-pip install resource-lister
+python -m pip install pipx
+python -m pip install boto3
+python -m pipx install resource-lister
 ```
 
-# Run Resource Lister Utility
+**Run the Resource Lister Utility using pipx**
 
-Download main.py from github
-
-https://github.com/awslabs/resource-lister/blob/main/install/main.py
-
-Run main.py python file with below command
 
 ```
-python3 main.py
+pipx run resource_lister
 ```
 
-Utility will open in command prompt
+Resource lister utility will open in command prompt
 
 <p align="center">
   <img src="imgs/05_install_01.PNG"  title="Utility Interface">
 
-# setup
+# Setup
+<details>
 
-Click on enviornment specific installation setup.
+  <summary>
+  <b>Express setup for single account using default credentials. </b>
+  </summary>
+You will use default IAM credentials for this setup. Ensure your current default credentials should have <b>read only permissions</b> 
+
+
+<b>Step1 : Navigate to  "Add Master Account"  </b>
+
+Type <b>help</b>--><b>1</b> [Manage AWS Account]--><b>1</b> [Add Master Account.]
+
+<p align="center">
+  <img src="imgs/express_setup_01.PNG"  title="Utility Interface">
+
+
+
+<b>Step2 : Configure Master account with dummy values </b>
+
+Since express setup we are using default credentials. Use dummy values for Master Account ARN like **arn:aws:iam::<Your 12 Digit Account>:role/dummy_role** and for child account role name enter **dummy_role**
+
+
+<p align="center">
+  <img src="imgs/express_setup_02.PNG"  title="Utility Interface">
+
+<b>Congratulations! AWS Account is successfully configured. </b>
+
+<b>Step3: Navigate back to main search </b>
+
+
+Type 0 to exit
+<b>0</b>--><b>0</b>
+
+<p align="center">
+  <img src="imgs/express_setup_03.PNG"  title="Utility Interface">
+
+
+<b>Step4 : Test Utility by generating list of s3 buckets .csv file  </b>
+
+Enter AWS service for help (help) for Exit (0) :--><b>s3</b>
+
+Please select any of following options:
+1. [List of S3 buckets]
+2. [List of the objects in a S3 Bucket]
+Please enter option HERE--><b>1</b>
+
+Please enter comma separated account id(s) or ALL  HERE--><b>ALL</b>
+
+
+<p align="center">
+  <img src="imgs/01_utility_interface.PNG"  title="Utility Interface">
+
+Utility will create output folder and generate the .csv file with list of s3 buckets in your account.
+
+<p align="center">
+  <img src="imgs/02_utility_output.PNG"  title="Utility Interface">
+
+
+
+  </details>
+
+
+
+<details> 
+<summary>
+<b>Multi Account configurations.
+</b>
+</summary>
+
+
 
 - [Cloud9 setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
 
-- [Cloudshell setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
-
-- [Desktop setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloud_9_setup.md)
+- [Cloudshell setup](https://github.com/awslabs/resource-lister/blob/main/docs/cloudshell_setup.md)
 
 
+
+</details>
 
 # Help
 [General help](https://github.com/awslabs/resource-lister/blob/main/docs/help_guide.md)
 
-
-# Supported Services and Functionality 
+# Supported Services and Functionality
+<details> 
+<summary>
+<b> Supported Services and Functionality  </b>
+</summary>
 <table>
 <tbody>
 <tr>
@@ -374,22 +452,31 @@ Click on enviornment specific installation setup.
 </td>
 </tr>
 </tbody>
-<table>
+</table>
+</details> 
 
-## Pricing
-Cloud9 Pricing: If you are using Cloud9 based setup.
+
 
 
 ## License
 This library is licensed under the Apache-2.0. See the LICENSE file.
 
 ## Considerations
-Resource-Lister creates boto3 sessions (master and child accounts) and invokes list APIs for the service you selected to list resources. These API calls will be applied to your account API Quotas. 
-If you configured Resource-lister for multiple accoutns.You can use existing master and child account roles or create new roles.
-If you decided to create new roles, You need to run cloudformation template in child account , cloudformation template will create IAM role in child account with read only permissions,this role will be assumed by master account.   
-Utility currrenlty supports only 70 functions. If you are interested in addtional functions /features, Please raise issue.
+* Resource-Lister makes list API calls using AWS SDK for Python(Boto3).These   list API calls will be applied to your [AWS Account List API Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html). 
 
-# Know issues
-Improvements in error handling messages
+* Utiliy provide options to use existing IAM roles or to create new roles using utility provided cloudformation templates. If you decided to use utility provided cloudformation templates.  Master account cloudformation template will create **ReadonlyAccess** IAM role in master account .Child account cloudformation template will create **ReadOnlyAccess** IAM role in child account.   
+
+
+* Most of the cases list generated by utility will have 99% of the attributes send back by Boto3 .Utility doesn't assure 100% attributes are covered. 
+
+* When running utility more than 5 accounts,to avoid **memory issues**,It's recommended to generate Account wise file. Account wise file can be generated by changing configuration settting in help section . 
+Help --> 6. [Manage Configurations (example : format_type, output_type)]-->5.[Modify  Seperate file for each AWS Account]-->change to **yes**
+
+* Utility currently supports only 27 services and 70 functions. Utility is configuration driven so adding new function is easy. If you are interested in additional functions /features, please raise issue.
+
+# Know issues/Pending items
+* Improvements in error handling messages
+* Help section is work in progress
+
 
 
