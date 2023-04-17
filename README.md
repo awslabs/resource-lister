@@ -59,6 +59,7 @@ pipx run resource_lister
 
 # Prerequisite
 1. [Python](https://www.python.org/)
+2. [AWS CLI](https://aws.amazon.com/cli/)
 
 # Installation
 
@@ -81,9 +82,14 @@ python -m pipx install resource-lister
 
 **Run the Resource Lister Utility using pipx**
 
+**On macOS, Linux, install via pip (requires pip 19.0 or later)**
+```
+python3 -m pipx run resource_lister
+```
+**On Windows, install via pip (requires pip 19.0 or later)**
 
 ```
-pipx run resource_lister
+python -m pipx run resource_lister
 ```
 
 Resource lister utility will open in command prompt
