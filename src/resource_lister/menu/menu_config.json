@@ -127,6 +127,17 @@
             "validation_functions": ""
         },
         {
+            "menu_index": "describe_addresses",
+            "menu_help": "Describes the specified Elastic IP addresses ",
+            "is_multi_account_support": "yes",
+            "is_regional": "yes",
+            "service_name": "ec2",
+            "function_name": "describe_addresses",
+            "implclass": "_regional_no_paginate",
+            "implfunction": "process",
+            "validation_functions": ""
+        },
+        {
             "menu_index": "describe_vpcs",
             "menu_help": "List of VPCs",
             "is_multi_account_support": "yes",
