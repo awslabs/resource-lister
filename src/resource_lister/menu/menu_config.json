@@ -892,6 +892,17 @@
             "implclass": "_regional_paginate",
             "implfunction": "process",
             "validation_functions": ""
+        },
+        {
+	            "menu_index": "ssm",
+	            "menu_help": "Describe Instance Information (OS version)",
+	            "is_multi_account_support": "yes",
+	            "is_regional": "yes",
+	            "service_name": "ssm",
+	            "function_name": "describe_instance_information",
+	            "implclass": "_regional_paginate",
+	            "implfunction": "process",
+	            "validation_functions": ""
         }
         
     ]
