@@ -5,7 +5,7 @@
   <summary># Step 1: Master account and Child account Roles </summary>
 
 ## Step 1: Master account and Child account Roles 
-ResourceLister utility needs ReadOnlyAccess permission to access AWS python SDK List APIs in your Master account and child accounts.  You need to configure utility for **Master Account IAM Role ARN** and **Child account role name** as part of Master account setup (Setp4 ).  For Master account and child account roles you can choose any of following options.
+ResourceLister utility needs ReadOnlyAccess permission to access AWS python SDK List APIs in your Master account and child accounts.  You need to configure utility for **Master Account IAM Role ARN** and **Child account role name** as part of Master account setup (Step4 ).  For Master account and child account roles you can choose any of following options.
 
 Option 1: Re use existing Master and Child account IAM roles.
 
