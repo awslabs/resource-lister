@@ -1,4 +1,4 @@
-#  Resource Lister (Multi Accounts) 
+#  Resource Lister (Multi Accounts) :Test
 Resource Lister is an open source, **NO CODE**, interactive, python-based command line utility. Resource Lister can generate **centralized**list of AWS resources (for **supported services**) in single or multiple accounts in consumable CSV, or flatten JSON format. Resource Lister uses AWS SDK for Python(Boto3) sessions and underlying Boto3 List APIs to connect multiple configured child accounts and generate the  resource list. It essentially **simplifies** accessing of Boto3 list APIs. Resource Lister also provides an option to send generated list to  file,  s3, or print on command line.
 Resource Lister can be configured to run from Cloud9, Cloudshell, EC2 or from your machine.
 
