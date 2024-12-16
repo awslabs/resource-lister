@@ -182,8 +182,8 @@ def validate_output_to(input_value, display_prompt):
     __message = None
     _validation_error = False
     input_value = input_value.strip().lower()
-    if input_value != "print" and input_value != "file" and input_value != "s3":
-        __message = "ERROR-->  {} Supported outputs are print /file /s3 ".format(
+    if input_value != "print" and input_value != "file" and input_value != "s3" and input_value != "none":
+        __message = "ERROR-->  {} Supported outputs are print /file /s3/none Only".format(
             display_prompt)
         _validation_error = True
     return _validation_error, __message

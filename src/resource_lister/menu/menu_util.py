@@ -5,6 +5,7 @@ import json
 from resource_lister.session_mgr.iam_session_mgr import AccountConfig
 from resource_lister.session_mgr.iam_session_mgr import Region
 import resource_lister.config_mgr.config_util as config_util
+from resource_lister.boto_formatter.service_config_mgr.service_config import ServiceConfig
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -21,8 +22,6 @@ To generate the list of AWS Resources Utility will make boto3  List API calls on
 If destination of output as set S3 , Utility will upload generated result on S3 bucket .
 '''
 
-
-
 def print_line():
     print("************************************************************************")
 
@@ -32,9 +31,7 @@ def print_disclaimer():
 
 
 class MenuData():
-    __menu_data = None
-    __menu_index_data = None
-    __service_list = []
+    __service_list = None
     __account_list = None
     __region_list = None
     __attributes = None
@@ -44,69 +41,38 @@ class MenuData():
         """ Load config values from menu_config.json"""
         logger.debug("loading Data for menu_config {}...")
         try:
-            dir_path = os.path.dirname(os.path.abspath(__file__))
-            file_path = os.path.join(dir_path, "menu_config.json")
-            f = open(file_path)
-            temp_data = json.load(f)
-            MenuData.__menu_data = temp_data["menus"]
-            MenuData.__menu_index_data = {}
-            # Update Menu index data and service list
-            for _menu in MenuData.__menu_data:
-                MenuData.__menu_index_data[_menu["menu_index"]] = _menu
-                if _menu["service_name"] not in MenuData.__service_list:
-                    MenuData.__service_list.append(_menu["service_name"])
-            f.close()
-            MenuData.__service_list.sort()
+            MenuData.__service_list  = ServiceConfig.get_services_names()
             MenuData.__account_list = AccountConfig.get_account_list()
             MenuData.__region_list = Region.get_regions()
+            MenuData.__attributes = config_util.ConfigAttributes.get_config_attributes()
 
         except FileNotFoundError as err:
             logger.error(
                 "File menu_config.json file is not Found. Please check menu_config.json file exists")
             raise err
-
-    def search_menu_data(self, menu_str):
-        result = None
-        if MenuData.__menu_data is None:
+    @classmethod
+    def validate_service_name(cls, selected_service_name):
+        """
+        This function accept the service_name and get the function details
+        """
+        is_valid_service = False
+        if MenuData.__service_list is None:
             MenuData.load_data()
-        if menu_str is not None:
-            menu_str = menu_str.strip().lower()
+        if selected_service_name is not None:
             service_list = MenuData.get_service_list()
-            # if user types in service name
-            if menu_str in service_list:
-                result = []
-                for _menu in MenuData.__menu_data:
-                    if menu_str == _menu["service_name"]:
-                        result.append(dict(_menu))
+            if selected_service_name in service_list:
+                is_valid_service = True
             else:
                 # if user types in service id
-                if menu_str.isdigit():
-                    menu_item_index = int(menu_str)-1
-                    if menu_item_index <= len(service_list):
-                        service_name = service_list[menu_item_index]
-                        result = []
-                        for _menu in MenuData.__menu_data:
-                            if service_name == _menu["service_name"]:
-                                result.append(dict(_menu))
-
-        return result
-
+                if selected_service_name.isdigit():
+                    selected_service_index = int(selected_service_name)-1
+                    if selected_service_index < len(service_list):
+                        is_valid_service = True
+                        selected_service_name = service_list[selected_service_index]
+        return is_valid_service,selected_service_name
     @classmethod
-    def get_menu_item(cls, menu_index):
-        menu_item = None
-        if MenuData.__menu_index_data is None:
-            MenuData.load_data()
-        if menu_index is None:
-            raise ValueError("Please select valid option :")
-        else:
-            menu_index = menu_index.strip().lower()
-            try:
-                menu_item = dict(MenuData.__menu_index_data[menu_index])
-            except KeyError as err:
-                logger.error(err)
-                raise ValueError("Please select valid option")
-
-        return menu_item
+    def get_service_functions(cls, selected_service_name):
+        return ServiceConfig.get_service_functions(selected_service_name)
 
     @classmethod
     def get_account_list(cls):
@@ -141,13 +107,13 @@ class MenuData():
         return dict(MenuData.__attributes)
 
 
-def print_menu_data(result, service_name):
+def print_functions(service_function_list, selected_service_name):
     count = 1
-    print("Service selected [{}]:".format(service_name))
+    print("Service selected [{}]:".format(selected_service_name))
     print("Please select any of following options:")
-    for menu_item in result:
-        print("{}. [{}]".format(
-            count, menu_item["menu_help"]))
+    for function_json in service_function_list:
+        print("{}. {}[{}]".format(
+            count, function_json["function_name"],function_json["function_description"]))
         count += 1
 
 
@@ -175,10 +141,10 @@ def print_services():
 def print_all_services_menu():
     count = 1
     for service in MenuData.get_service_list():
-        menu_list = MenuData().search_menu_data(service)
-        for _menu in menu_list:
+        service_function_list = MenuData.get_service_functions(service)
+        for function_json in service_function_list:
             print("{},{},{},{}".format(count, service,
-                  _menu["menu_index"], _menu["menu_help"]))
+                  function_json["function_name"], function_json["function_description"]))
             count += 1
 
 # print_menu_data(MenuData().search_menu_data("lambda"))

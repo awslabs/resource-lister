@@ -21,6 +21,7 @@ across AWS Accounts.
 WARNING :
 To generate the list of AWS Resources Utility will make boto3  List API calls 
 on configured accounts.These API calls will applied to your API Account Quotas.
+V2.1
 '''
 
 
@@ -74,8 +75,14 @@ def process():
 
 def print_configure_utility():
     attributes = menu_util.MenuData.get_attributes()
-    CONFIGURATION = "CURRENT CONFIGURATIONS :\n  Format Type (csv/json) : {} \n  Output To (print/file/s3) :{}\n  Generate only required Columns (yes/no): {}\n  Generate seperate file for each AWS Account (yes/no) : {}\n  S3 Bucket : {}\n".format(
-        attributes["format_type"], attributes["output_to"], attributes["required"], attributes["account_split"], attributes["s3_bucket"])
+    CONFIGURATION = f"""CURRENT CONFIGURATIONS :\n
+      Format Type (csv/json) : {attributes["format_type"]} 
+      Output To (print/file/s3/none) :{attributes["output_to"]}
+      Generate only required Columns (yes/no): {attributes["required"]}
+      Generate seperate file for each AWS Account (yes/no) : {attributes["account_split"]}
+      S3 Bucket : {attributes["s3_bucket"]}
+      Date Append to file extension : {attributes["file_append_date"]}
+      """
     print(CONFIGURATION)
 
 
@@ -133,6 +140,8 @@ def process_help():
     process_input()
 
 
+
+
 def process_input():
     menu_option = -999
     while menu_option != 0:
@@ -144,22 +153,29 @@ def process_input():
             if input_value == "help":
                 process_help()
                 break
+            # elif input_value == "clear" or input_value == "cls":
+            #     try:
+            #         # For Windows
+            #         if os.name == 'nt':
+            #             _ = os.system('cls')
+            #         # For macOS and Linux
+            #         else:
+            #          _ = os.system('clear')
+            #     except Exception as e:
+            #         print(f"Error occurred while trying to clear the screen: {e}", file=sys.stderr)
+
             # Exit option
             elif input_value == "0":
                 menu_option = 0
                 break
             else:
-                menu_list = menu_util.MenuData().search_menu_data(input_value)
+                #function_list = menu_util.MenuData().validate_service_name(input_value)
                 # if invalid service selected menu_list would be None
-                if menu_list is None:
-                    print("Invalid service {} selected .Please try again with any of following services".format(
-                        input_value))
-                    menu_util.print_services()
-                    input("Please enter Any key to Continue -->")
-                else:
+                is_valid_service,selected_service_name =menu_util.MenuData().validate_service_name(input_value)
+                if is_valid_service:
                     # When exit key is press i.e -1 process config becomes None
                     process_config = process_service_functions(
-                        menu_list, input_value)
+                        selected_service_name)
                     if process_config:
                         process_config = process_accounts(process_config)
                     if process_config:
@@ -171,30 +187,47 @@ def process_input():
                         process_config["attributes"] = dict(menu_util.MenuData.get_attributes(
                         ))
                         core_processor.process(process_config)
+                else: 
+                    print("Invalid service {} selected .Please try again with any of following services".format(
+                        input_value))
+                    menu_util.print_services()
+                    input("Please enter Any key to Continue -->")
         except ValueError as e:
             if str(e) == "Please configure Master Account":
                 print("Please configure Master Account")
+            elif str(e) =="Please enter valid service":
+                print("Please enter valid service")
 
 
 
-def process_service_functions(menu_list, input_value):
+def process_service_functions(selected_service_name):
     in_process_service_functions = True
-    process_config = None
+    process_config =dict()
+    process_config["service_name"] = selected_service_name
+    service_functions_list = menu_util.MenuData.get_service_functions(selected_service_name)
     while in_process_service_functions:
-        menu_util.print_menu_data(menu_list, input_value)
-        option_selected_value = input("Please enter option HERE-->").strip()
-        if option_selected_value == "-1":
+        menu_util.print_functions(service_functions_list, selected_service_name)
+        selected_function_value = input("Please enter option HERE-->").strip()
+        if selected_function_value == "-1":
+            process_config = None
             break
+
+        elif selected_function_value. isdigit():
+                selected_function_value_index = int(selected_function_value)-1
+                if selected_function_value_index < len(service_functions_list):
+                    function_config = service_functions_list[selected_function_value_index]
+                    process_config.update(function_config)
+                    in_process_service_functions = False
+                    break
         else:
-            menu_item = validate_menu(option_selected_value, menu_list)
-            if menu_item:
-                process_config = menu_util.MenuData.get_menu_item(
-                    menu_item)
-                process_config = dict(process_config)
-                in_process_service_functions = False
-                break
-            else:
-                print("Invalid option selected .Please try again")
+                for function_config in service_functions_list:
+                    if selected_function_value ==function_config["function_name"]:
+                        process_config.update(function_config)
+                        in_process_service_functions = False
+                        break
+    
+        if in_process_service_functions:
+            print("Invalid option selected .Please try again")
                 #process_service_functions(menu_list, input_value)
     return process_config
 
@@ -202,7 +235,7 @@ def process_service_functions(menu_list, input_value):
 def process_accounts(process_config):
     in_process_accounts = True
 
-    if process_config["is_multi_account_support"] == "yes":
+    if process_config["is_multi_account_support"] == "Y":
         while in_process_accounts:
             accounts = input(
                 "Please enter comma seperated account id(s) or ALL  HERE--> ").strip()
@@ -253,7 +286,7 @@ def process_accounts(process_config):
 
 def process_regions(process_config):
     in_process_regions = True
-    if process_config["is_regional"] == "yes":
+    if process_config["is_regional"] == "Y":
         while in_process_regions:
             regions = input(
                 "Please enter comma seperated regions(s) or ALL  HERE--> ").strip()
@@ -284,15 +317,26 @@ def process_paginatio_attributes(process_config):
     if "pagination_attributes" in process_config.keys():
         refined_pagination_attributes = {}
         for pagination_attribute in process_config["pagination_attributes"]:
-            if pagination_attribute["is_visible"].upper() == "YES":
+            if pagination_attribute["is_visible"].upper() == "Y":
                 pagination_attribute_value = input(
                     "{} HERE--> ".format(pagination_attribute["display_prompt"])).strip()
                 if pagination_attribute_value == "-1":
                     process_config = None
                     break
                 else:
-                    refined_pagination_attributes[pagination_attribute["attribute_name"]
-                                                  ] = pagination_attribute_value
+                    if pagination_attribute["type"] =="str":
+                        refined_pagination_attributes[pagination_attribute["attribute_name"]
+                                                    ] = pagination_attribute_value
+                    #get_resource Tag API has list
+                    elif pagination_attribute["type"] =="list":
+                        pagination_attributes_element =dict()
+                        pagination_attributes_element[pagination_attribute["attribute_name"]] = pagination_attribute_value
+                        pagination_attribute_list = []
+                        pagination_attribute_list.append(pagination_attributes_element)
+                        refined_pagination_attributes[pagination_attribute["parent_key"]] = pagination_attribute_list
+
+
+
             else:
                 refined_pagination_attributes[pagination_attribute["attribute_name"]
                                               ] = pagination_attribute["attribute_value"]
@@ -301,17 +345,6 @@ def process_paginatio_attributes(process_config):
     return process_config
 
 
-def validate_menu(menu_item, menu_list):
-    valid_menu_item = None
-    if menu_item in [x["menu_index"] for x in menu_list]:
-        valid_menu_item = menu_item
-    # This if user enters number as option like 1,2
-    else:
-        if menu_item. isdigit():
-            menu_item_index = int(menu_item)-1
-            if menu_item_index <= len(menu_list):
-                valid_menu_item = menu_list[menu_item_index]["menu_index"]
-    return valid_menu_item
 
 
 def validated_list_value(input_list, to_compare_list):

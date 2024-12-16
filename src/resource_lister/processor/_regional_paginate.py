@@ -18,6 +18,7 @@ def process(process_config):
     attributes = process_config["attributes"]
     attributes["pagination"] = "True"
     pagination_attributes = None
+    __result = None
     current_date = datetime.datetime.now().strftime("%m/%d/%Y")
     if "pagination_attributes" in process_config.keys():
         pagination_attributes = process_config["pagination_attributes"]
@@ -50,8 +51,9 @@ def process(process_config):
                         object_list.append(future.result())
                     except Exception as exc:
                         logger.error(exc)
-        process_result(process_config, service_response_formatter(
+        __result = process_result(process_config, service_response_formatter(
             service_name, function_name, object_list, attributes))
+    return __result
 
 
 def process_region_list_pagination(_session, account, _region, service_name, function_name, current_date, pagination_attributes):

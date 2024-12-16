@@ -1,0 +1,59 @@
+{
+    "service_name": "appconfig",
+    "functions": [
+        {
+            "function_name": "list_applications",
+            "function_description": "Lists all applications in your Amazon Web Services account.",
+            "response_format": "FORMAT_2",
+            "function_type": "list",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
+            "is_multi_account_support": "Y",
+            "boto_session_type": "client",
+            "result_keys": [
+                "Items"
+            ],
+            "json_response": {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string"
+            }
+        },
+        {
+            "function_name": "list_configuration_profiles",
+            "function_description": "Lists the configuration profiles for an application.",
+            "response_format": "FORMAT_2",
+            "function_type": "list",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
+            "is_multi_account_support": "Y",
+            "boto_session_type": "client",
+            "pagination_attributes": [
+                {
+                    "attribute_name": "ApplicationId",
+                    "attribute_value": "",
+                    "is_visible": "Y",
+                    "display_prompt": "The application ID",
+                    "type": "str"
+                }
+            ],
+            "result_keys": [
+                "Items"
+            ],
+            "json_response": {
+                "ApplicationId": "string",
+                "Id": "string",
+                "Name": "string",
+                "LocationUri": "string",
+                "ValidatorTypes_0": "strings",
+                "Type": "string"
+            }
+        }
+    ]
+}

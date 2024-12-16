@@ -1,0 +1,35 @@
+{
+    "service_name": "appflow",
+    "functions": [
+        {
+            "function_name": "list_connectors",
+            "function_description": "list_connectors",
+            "response_format": "FORMAT_2",
+            "function_type": "list",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "implclass": "_regional_no_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
+            "is_multi_account_support": "Y",
+            "boto_session_type": "client",
+            "result_keys": [
+                "connectors"
+            ],
+            "json_response": {
+                "connectorDescription": "string",
+                "connectorName": "string",
+                "connectorOwner": "string",
+                "connectorVersion": "string",
+                "applicationType": "string",
+                "connectorType": "Salesforce",
+                "connectorLabel": "string",
+                "registeredAt": "2015-01-01T00:00:00",
+                "registeredBy": "string",
+                "connectorProvisioningType": "LAMBDA",
+                "connectorModes_0": "string",
+                "supportedDataTransferTypes_0": "RECORD"
+            }
+        }
+    ]
+}
