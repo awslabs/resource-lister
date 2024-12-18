@@ -1,5 +1,6 @@
 
 import logging
+import os
 logging.basicConfig(level=logging.ERROR)
 logger = logging.getLogger()
 
@@ -182,8 +183,8 @@ def validate_output_to(input_value, display_prompt):
     __message = None
     _validation_error = False
     input_value = input_value.strip().lower()
-    if input_value != "print" and input_value != "file" and input_value != "s3":
-        __message = "ERROR-->  {} Supported outputs are print /file /s3 ".format(
+    if input_value != "print" and input_value != "file" and input_value != "s3" and input_value != "none":
+        __message = "ERROR-->  {} Supported outputs are print /file /s3/none Only".format(
             display_prompt)
         _validation_error = True
     return _validation_error, __message
@@ -213,8 +214,9 @@ def validate_accounts(input_value, display_prompt):
 def validate_arn(arn, display_prompt):
     __message = None
     _validation_error = False
+    arn = arn.strip()
     error_message = "Arn is not valid {} :Please enter valid arn in format example :arn:aws:iam::12345789012:role/abc".format(
-        display_prompt)
+        arn)
     if arn is None:
         _validation_error = True
         __message = error_message
@@ -242,10 +244,21 @@ def check_account_config_type(check_account_type, display_prompt):
     __message = None
     _validation_error = False
     error_message = "Accepted values for  is 1 or 2 : 1. For  Use default credentials  2. Assume master account role from default credentials ]"
+    check_account_type = check_account_type.strip()
     if check_account_type is None:
         _validation_error = True
         __message = error_message
     elif check_account_type != "1" and check_account_type != "2":
         _validation_error = True
         __message = error_message
+    return _validation_error, __message
+
+
+def check_dir_path(dir_path, display_prompt):
+    __message = None
+    _validation_error = False
+    dir_path = dir_path.strip()
+    if not os.path.exists(dir_path):
+        _validation_error = True
+        __message = "Directory path {} does not exist.".format(dir_path)
     return _validation_error, __message

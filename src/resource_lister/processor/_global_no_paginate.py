@@ -22,6 +22,7 @@ def process(process_config):
     current_date = datetime.datetime.now().strftime("%m/%d/%Y")
     # pagination attributes are attributes passed to function
     pagination_attributes = None
+    __result = None
     if "pagination_attributes" in process_config.keys():
         pagination_attributes = process_config["pagination_attributes"]
 # YES: generate seperate output file for each account
@@ -31,7 +32,7 @@ def process(process_config):
             object_list = []
             object_list.append(process_global_list(
                 _session, _account, service_name, function_name, current_date, pagination_attributes,))
-            process_result(process_config, service_response_formatter(
+            __result = process_result(process_config, service_response_formatter(
                 service_name, function_name, object_list, attributes))
 # NO: Generate Consolidated output for all the accounts
     else:
@@ -39,8 +40,9 @@ def process(process_config):
             _session = SessionHandler.get_session(_account)
             object_list.append(process_global_list(
                 _session, _account, service_name, function_name, current_date, pagination_attributes))
-        process_result(process_config, service_response_formatter(
+        __result = process_result(process_config, service_response_formatter(
             service_name, function_name, object_list, attributes))
+    return __result
 
 
 def process_global_list(_session, _account, service_name, function_name, current_date, pagination_attributes):

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resource-lister"
-version = "1.2.0"
+version = "2.0.0"
 authors = [
   { name="Abhijit Rajeshirke", email="rajeabh@amazon.com" },
 ]

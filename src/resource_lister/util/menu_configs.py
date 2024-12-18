@@ -10,7 +10,7 @@ formate_type_config = [{
 
 output_to_config = [{
     "id": "output_to",
-    "display_prompt": "Output To (print/file/s3)",
+    "display_prompt": "Output To (print/file/s3/none)",
     "is_mandatory": "yes",
     "validation_functions": ["validate_mandatory", "validate_output_to"]
 }
@@ -36,8 +36,16 @@ s3_config = [{
     "display_prompt": "S3 Bucket Name",
     "is_mandatory": "yes",
     "validation_functions": ["validate_mandatory"]
-}
-]
+}]
+
+
+file_append_date_config = [{
+    "id": "file_append_date",
+    "display_prompt": "Do you want to append date to generated file (yes/no)",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory"]
+}]
+
 
 config_menu_config = {
     "menu": {
@@ -72,7 +80,12 @@ config_menu_config = {
                 {"display_name": "Modify S3 Bucket Name",
                  "action": "True",
                  "function_name": "modify_s3_bucket"
-                 }
+                 },
+                {"display_name": "Modify File append date option",
+                 "action": "True",
+                 "function_name": "modify_file_append_date"
+                 },
+
             ]
         }
 
@@ -228,3 +241,39 @@ account_menu_config = {
 
     }
 }
+
+
+
+config_generator_util_config = [{
+    "id": "input_dir_path",
+    "display_prompt": "Please specify the complete input directory path where the configuration files are located[example C:\\abc\\configs].",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory","check_dir_path"]
+},
+    {
+    "id": "output_dir_path",
+    "display_prompt": "Please specify the complete output directory where the  configuration files will be generated.",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory","check_dir_path"]
+}
+
+]
+
+
+config_generator_menu_config = {
+    "menu": {
+        "0": {
+            "menu_link": "MENU [MAIN-->HELP-->Generate service configuration files]",
+            "menu_question": "Please select any of following option:",
+            "menu_options": [
+                {"display_name": "Generate service configuration files.",
+                 "action": "True",
+                 "function_name": "process_config_files"
+
+                 }
+            ]
+    }
+}
+}
+
+

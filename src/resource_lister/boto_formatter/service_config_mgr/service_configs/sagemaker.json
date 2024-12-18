@@ -7,8 +7,12 @@
             "boto_session_type": "client",
             "response_format": "FORMAT_2",
             "function_type": "list",
-            "is_regional": "Yes",
-            "pagination_support": "Yes",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "is_multi_account_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
             "result_keys": [
                 "Domains"
             ],
@@ -28,8 +32,12 @@
             "boto_session_type": "client",
             "response_format": "FORMAT_2",
             "function_type": "list",
-            "is_regional": "Yes",
-            "pagination_support": "Yes",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "is_multi_account_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
             "result_keys": [
                 "Images"
             ],
@@ -50,8 +58,12 @@
             "boto_session_type": "client",
             "response_format": "FORMAT_2",
             "function_type": "list",
-            "is_regional": "Yes",
-            "pagination_support": "Yes",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "is_multi_account_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
             "result_keys": [
                 "Models"
             ],
@@ -67,8 +79,12 @@
             "boto_session_type": "client",
             "response_format": "FORMAT_2",
             "function_type": "list",
-            "is_regional": "Yes",
-            "pagination_support": "Yes",
+            "is_regional": "Y",
+            "pagination_support": "N",
+            "is_multi_account_support": "Y",
+            "implclass": "_regional_no_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
             "result_keys": [
                 "ProjectSummaryList"
             ],
@@ -87,8 +103,12 @@
             "boto_session_type": "client",
             "response_format": "FORMAT_2",
             "function_type": "list",
-            "is_regional": "Yes",
-            "pagination_support": "Yes",
+            "is_regional": "Y",
+            "pagination_support": "Y",
+            "is_multi_account_support": "Y",
+            "implclass": "_regional_paginate",
+            "implfunction": "process",
+            "validation_functions": "",
             "result_keys": [
                 "UserProfiles"
             ],

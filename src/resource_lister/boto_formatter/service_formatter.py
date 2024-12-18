@@ -26,6 +26,7 @@ def service_response_formatter(service_name, function_name, response, attributes
     output_path = None  # Default is none, user can provide custom path
     pagination = False
     required_only = None  # Default is none if required only fields
+    date_append = "no"
     # default type is json. Supported types are json,csv
     if attributes is not None:
         if "format_type" in attributes:
@@ -41,6 +42,8 @@ def service_response_formatter(service_name, function_name, response, attributes
                 pagination = True
         if "required_only" in attributes:
             required_only = True
+        if "file_append_date" in attributes:
+            date_append = attributes["file_append_date"]
     if output_path is None:
         output_path = os.getcwd()
     json_config = None
@@ -60,7 +63,7 @@ def service_response_formatter(service_name, function_name, response, attributes
         result = __format_ouput(result, format_type)
     if output_to:
         result = __ouput_to(service_name, function_name,
-                            result, output_to, format_type,
+                            result, output_to, format_type,date_append,
                             output_path, response_format)
     return result
 
@@ -144,7 +147,7 @@ def __format_ouput(result, format_type):
         return result
 
 
-def __ouput_to(service_name, function_name, result, output_to, format_type, output_path, response_format):
+def __ouput_to(service_name, function_name, result, output_to, format_type, date_append, output_path, response_format):
     """
     :param service_name :service_name like s3, lambda
     :param function_name: function name like list_buckets
@@ -161,10 +164,10 @@ def __ouput_to(service_name, function_name, result, output_to, format_type, outp
             file_path = None
             if format_type == "csv":
                 file_path = json_util.save_csv(
-                    result, service_name, function_name, output_path)
+                    result, service_name, function_name, date_append, output_path)
             else:
                 file_path = json_util.save_json(
-                    result, service_name, function_name, output_path)
+                    result, service_name, function_name, date_append,output_path)
         return file_path
     else:
         return result

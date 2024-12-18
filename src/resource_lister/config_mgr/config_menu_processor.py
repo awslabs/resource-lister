@@ -14,8 +14,8 @@ def print_configure_utility():
     : Print the utility configuraiton to console
     """
     attributes = dict(config_util.ConfigAttributes.get_config_attributes())
-    CONFIGURATION = "CURRENT CONFIGURATIONS :\n 1. Format Type (csv/json) : {} \n 2. Output To (print/file/s3) :{}\n 3. Generate only required Columns (yes/no): {}\n 4. Generate seperate file for each AWS Account (yes/no) : {}\n 5. S3 Bucket : {}\n".format(
-        attributes["format_type"], attributes["output_to"], attributes["required"], attributes["account_split"], attributes["s3_bucket"])
+    CONFIGURATION = "CURRENT CONFIGURATIONS :\n 1. Format Type (csv/json) : {} \n 2. Output To (print/file/s3/none) :{}\n 3. Generate only required Columns (yes/no): {}\n 4. Generate seperate file for each AWS Account (yes/no) : {}\n 5. S3 Bucket : {}\n 6. Date append to file extension : {}\n".format(
+        attributes["format_type"], attributes["output_to"], attributes["required"], attributes["account_split"], attributes["s3_bucket"], attributes["file_append_date"])
     print(CONFIGURATION)
 
 
@@ -26,7 +26,7 @@ def modify_formate_type():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.formate_type_config, input_json)
-    format_type = input_json_value["format_type"]
+    format_type = input_json_value["format_type"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["format_type"] = format_type
@@ -43,7 +43,7 @@ def modify_output_to():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.output_to_config, input_json)
-    output_to = input_json_value["output_to"]
+    output_to = input_json_value["output_to"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["output_to"] = output_to
@@ -77,7 +77,7 @@ def modify_account_wise():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.account_split_config, input_json)
-    account_split = input_json_value["account_split"]
+    account_split = input_json_value["account_split"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["account_split"] = account_split
@@ -95,11 +95,31 @@ def modify_s3_bucket():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.s3_config, input_json)
-    s3_bucket = input_json_value["s3_bucket"]
+    s3_bucket = input_json_value["s3_bucket"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["s3_bucket"] = s3_bucket
     config_util.ConfigAttributes.update_config_attributes(config_attributes)
     # Print statement to print output to command prompt
-    print(" Generate seperate file for each AWS Account updated  to {}.".format(s3_bucket))
+    print(" The S3 bucket path has been successfully updated. {}.".format(s3_bucket))
     print_configure_utility()
+
+
+def modify_file_append_date():
+    """
+    : modify s3 bucket in config.json
+    """
+    input_json = dict()
+    input_json_value = menu_util.process_inputs(
+        config_menu_configs.file_append_date_config, input_json)
+    file_append_date = input_json_value["file_append_date"].strip()
+    config_attributes = dict(
+        config_util.ConfigAttributes.get_config_attributes())
+    config_attributes["file_append_date"] = file_append_date
+    config_util.ConfigAttributes.update_config_attributes(config_attributes)
+    # Print statement to print output to command prompt
+    print(" Date extension will be appended to generated file{}.".format(file_append_date))
+    print_configure_utility()
+
+
+

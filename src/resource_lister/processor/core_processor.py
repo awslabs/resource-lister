@@ -10,4 +10,4 @@ def process(process_config):
     module_name = "resource_lister.processor.{}".format(
         process_config["implclass"])
     module = importlib.import_module(module_name)
-    getattr(module, process_config["implfunction"])(process_config)
+    return getattr(module, process_config["implfunction"])(process_config)

@@ -215,7 +215,7 @@ def get_output_path():
     return dir_path
 
 
-def get_file_path(service_name, function_name, dir_path, file_type):
+def get_file_path(service_name, function_name, date_append, dir_path, file_type):
     """
      Generate file path based on service_name and function_name
     :param service_name like s3, lambda
@@ -224,9 +224,13 @@ def get_file_path(service_name, function_name, dir_path, file_type):
     """
     if not os.path.exists(dir_path):
         ValueError("Invalid Path to store the file  {}".format(dir_path))
-    current_date = datetime.datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
-    file_name = "{}_{}_{}.{}".format(
-        service_name, function_name, current_date, file_type)
+    file_name = ""
+    if date_append == "yes":
+        current_date = datetime.datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+        file_name = f"{service_name}_{function_name}_{current_date}.{file_type}"
+    else:
+        file_name = f"{service_name}_{function_name}.{file_type}"
+
     output_path = os.path.join(dir_path, "output")
     logger.info("Output directory path {} ".format(output_path))
     if not os.path.exists(output_path):
@@ -236,7 +240,7 @@ def get_file_path(service_name, function_name, dir_path, file_type):
     return file_path
 
 
-def save_csv(csv_data, service_name, function_name, dir_path):
+def save_csv(csv_data, service_name, function_name, date_append,dir_path):
     """
      save file as .csv
     :param csv_data data in list of comma seperated strings
@@ -247,7 +251,7 @@ def save_csv(csv_data, service_name, function_name, dir_path):
     file_full_path = None
     if len(csv_data) > 0:
         file_full_path = get_file_path(
-            service_name, function_name, dir_path, "csv")
+            service_name, function_name,date_append, dir_path, "csv")
         f = open(file_full_path, "w")
         for row in csv_data:
             f.write(row + "\n")
@@ -257,7 +261,7 @@ def save_csv(csv_data, service_name, function_name, dir_path):
     return file_full_path
 
 
-def save_json(json_data, service_name, function_name, dir_path=None):
+def save_json(json_data, service_name, function_name, date_append,dir_path=None):
     """
      save file as .json
     :param json_data json formatted data
@@ -270,7 +274,7 @@ def save_json(json_data, service_name, function_name, dir_path=None):
         json_data_list = dict()
         json_data_list["result"] = json_data
         file_full_path = get_file_path(
-            service_name, function_name, dir_path, "json")
+            service_name, function_name, date_append,dir_path, "json")
         json_data_list = json.dumps(json_data_list, indent=4, default=str)
         # Writing to sample.json
         with open(file_full_path, "w") as outfile:
@@ -281,9 +285,9 @@ def save_json(json_data, service_name, function_name, dir_path=None):
     return file_full_path
 
 
-def save_file(json_data, service_name, function_name, dir_path=None):
+def save_file(json_data, service_name, function_name,date_append, dir_path=None):
     file_full_path = get_file_path(
-        service_name, function_name, dir_path, "json")
+        service_name, function_name,date_append, dir_path, "json")
     # Writing to sample.json
     with open(file_full_path, "w") as outfile:
         outfile.write(json_data)
