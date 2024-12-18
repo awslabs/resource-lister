@@ -46,7 +46,7 @@ pipx run resource_lister
 **5** . **Result**: Resource lister utility will then generates the list of AWS Resources for selected accounts and regions send the output to file or S3 Bucket or print on command prompt depending upon your configuration.
 
 <p align="center">
-  <img src="imgs/01_utility_interface.PNG"  title="Utility Interface">
+  <img src="imgs/01_utility_interface.gif"  title="Utility Interface">
 
 **Output**
 <p align="center">
