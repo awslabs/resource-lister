@@ -1,0 +1,30 @@
+{
+    "service_name": "ecs",
+    "function_name": "list_tasks",
+    "function_description": "list_tasks",
+    "response_format": "FORMAT_3",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "pagination_attributes": [
+        {
+            "attribute_name": "cluster",
+            "attribute_value": "default",
+            "is_visible": "Y",
+            "display_prompt": "The short name or full Amazon Resource Name (ARN) of the cluster",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "taskArns"
+    ],
+    "json_response": {
+        "taskArns":""
+    }
+}
+

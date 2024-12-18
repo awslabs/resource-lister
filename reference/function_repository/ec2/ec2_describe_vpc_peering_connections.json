@@ -1,0 +1,73 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_vpc_peering_connections",
+    "function_description": "List vpc peering connections Snapshot",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "VpcPeeringConnections"
+    ],
+    "json_response": {
+        "AccepterVpcInfo": {
+            "CidrBlock": "string",
+            "Ipv6CidrBlockSet": [
+                {
+                    "Ipv6CidrBlock": "string"
+                }
+            ],
+            "CidrBlockSet": [
+                {
+                    "CidrBlock": "string"
+                }
+            ],
+            "OwnerId": "string",
+            "PeeringOptions": {
+                "AllowDnsResolutionFromRemoteVpc": "",
+                "AllowEgressFromLocalClassicLinkToRemoteVpc": "",
+                "AllowEgressFromLocalVpcToRemoteClassicLink": ""
+            },
+            "VpcId": "string",
+            "Region": "string"
+        },
+        "ExpirationTime": "",
+        "RequesterVpcInfo": {
+            "CidrBlock": "string",
+            "Ipv6CidrBlockSet": [
+                {
+                    "Ipv6CidrBlock": "string"
+                }
+            ],
+            "CidrBlockSet": [
+                {
+                    "CidrBlock": "string"
+                }
+            ],
+            "OwnerId": "string",
+            "PeeringOptions": {
+                "AllowDnsResolutionFromRemoteVpc": "",
+                "AllowEgressFromLocalClassicLinkToRemoteVpc": "",
+                "AllowEgressFromLocalVpcToRemoteClassicLink": ""
+            },
+            "VpcId": "string",
+            "Region": "string"
+        },
+        "Status": {
+            "Code": "",
+            "Message": "string"
+        },
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VpcPeeringConnectionId": "string"
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_subnets",
+    "function_description": "Descirbe Route Tables",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Subnets"
+    ],
+    "json_response": {
+        "AvailabilityZone": "string",
+        "AvailabilityZoneId": "string",
+        "AvailableIpAddressCount": "",
+        "CidrBlock": "string",
+        "DefaultForAz": "",
+        "EnableLniAtDeviceIndex": "",
+        "MapPublicIpOnLaunch": "",
+        "MapCustomerOwnedIpOnLaunch": "",
+        "CustomerOwnedIpv4Pool": "string",
+        "State": "",
+        "SubnetId": "string",
+        "VpcId": "string",
+        "OwnerId": "string",
+        "AssignIpv6AddressOnCreation": "",
+        "Ipv6CidrBlockAssociationSet": [
+            {
+                "AssociationId": "string",
+                "Ipv6CidrBlock": "string",
+                "Ipv6CidrBlockState": {
+                    "State": "",
+                    "StatusMessage": "string"
+                }
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "SubnetArn": "string",
+        "OutpostArn": "string",
+        "EnableDns64": "",
+        "Ipv6Native": "",
+        "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "",
+            "EnableResourceNameDnsARecord": "",
+            "EnableResourceNameDnsAAAARecord": ""
+        }
+    }
+}

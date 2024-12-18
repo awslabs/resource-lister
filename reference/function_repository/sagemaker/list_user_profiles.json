@@ -1,0 +1,24 @@
+{
+    "service_name": "sagemaker",
+    "function_name": "list_user_profiles",
+    "function_description": "Lists user profiles. ",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "UserProfiles"
+    ],
+    "json_response": {
+        "DomainId": "string",
+        "UserProfileName": "string",
+        "Status": "",
+        "CreationTime": "",
+        "LastModifiedTime": ""
+    }
+}

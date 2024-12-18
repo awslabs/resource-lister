@@ -1,0 +1,29 @@
+{
+    "service_name": "emr-serverless",
+    "function_name": "list_applications",
+    "function_description": "Lists applications",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "applications"
+    ],
+    "json_response": {
+        "id": "string",
+        "name": "string",
+        "arn": "string",
+        "releaseLabel": "string",
+        "type": "string",
+        "state": "",
+        "stateDetails": "string",
+        "createdAt": "",
+        "updatedAt": "",
+        "architecture": ""
+    }
+}

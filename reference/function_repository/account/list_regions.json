@@ -1,0 +1,21 @@
+{
+    "service_name": "account",
+    "function_name": "list_regions",
+    "function_description": "list_regions",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "result_keys": [
+        "Regions"
+    ],
+    "json_response": {
+        "RegionName": "",
+        "RegionOptStatus": ""
+        }
+}

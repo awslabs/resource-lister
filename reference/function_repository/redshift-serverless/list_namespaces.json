@@ -1,0 +1,34 @@
+{
+    "service_name": "redshift-serverless",
+    "function_name": "list_namespaces",
+    "function_description": "List Name spaces",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "namespaces"
+    ],
+    "json_response": {
+        "adminUsername": "string",
+        "creationDate": "string",
+        "dbName": "string",
+        "defaultIamRoleArn": "string",
+        "iamRoles": [
+            "string"
+        ],
+        "kmsKeyId": "string",
+        "logExports": [
+            ""
+        ],
+        "namespaceArn": "string",
+        "namespaceId": "string",
+        "namespaceName": "string",
+        "status": ""
+    }
+}

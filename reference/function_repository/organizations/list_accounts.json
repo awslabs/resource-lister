@@ -1,0 +1,26 @@
+{
+    "service_name": "organizations",
+    "function_name": "list_accounts",
+    "function_description": "List accounts in Organization",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "N",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Accounts"
+    ],
+    "json_response": {
+        "Id": "string",
+        "Arn": "string",
+        "Email": "string",
+        "Name": "string",
+        "Status": "",
+        "JoinedMethod": "",
+        "JoinedTimestamp": ""
+    }
+}

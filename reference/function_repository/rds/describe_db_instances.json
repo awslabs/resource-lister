@@ -1,0 +1,227 @@
+{
+    "service_name": "rds",
+    "function_name": "describe_db_instances",
+    "function_description": "Provisioned RDS instances",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "DBInstances"
+    ],
+    "json_response": {
+        "DBInstanceIdentifier": "string",
+        "DBInstanceClass": "string",
+        "Engine": "string",
+        "DBInstanceStatus": "string",
+        "AutomaticRestartTime": "",
+        "MasterUsername": "string",
+        "DBName": "string",
+        "Endpoint": {
+            "Address": "string",
+            "Port": " ",
+            "HostedZoneId": "string"
+        },
+        "AllocatedStorage": " ",
+        "InstanceCreateTime": "",
+        "PreferredBackupWindow": "string",
+        "BackupRetentionPeriod": " ",
+        "DBSecurityGroups": [
+            {
+                "DBSecurityGroupName": "string",
+                "Status": "string"
+            }
+        ],
+        "VpcSecurityGroups": [
+            {
+                "VpcSecurityGroupId": "string",
+                "Status": "string"
+            }
+        ],
+        "DBParameterGroups": [
+            {
+                "DBParameterGroupName": "string",
+                "ParameterApplyStatus": "string"
+            }
+        ],
+        "AvailabilityZone": "string",
+        "DBSubnetGroup": {
+            "DBSubnetGroupName": "string",
+            "DBSubnetGroupDescription": "string",
+            "VpcId": "string",
+            "SubnetGroupStatus": "string",
+            "Subnets": [
+                {
+                    "SubnetIdentifier": "string",
+                    "SubnetAvailabilityZone": {
+                        "Name": "string"
+                    },
+                    "SubnetOutpost": {
+                        "Arn": "string"
+                    },
+                    "SubnetStatus": "string"
+                }
+            ],
+            "DBSubnetGroupArn": "string",
+            "SupportedNetworkTypes": [
+                "string"
+            ]
+        },
+        "PreferredMaintenanceWindow": "string",
+        "PendingModifiedValues": {
+            "DBInstanceClass": "string",
+            "AllocatedStorage": " ",
+            "MasterUserPassword": "string",
+            "Port": " ",
+            "BackupRetentionPeriod": " ",
+            "MultiAZ": " ",
+            "EngineVersion": "string",
+            "LicenseModel": "string",
+            "Iops": " ",
+            "DBInstanceIdentifier": "string",
+            "StorageType": "string",
+            "CACertificateIdentifier": "string",
+            "DBSubnetGroupName": "string",
+            "PendingCloudwatchLogsExports": {
+                "LogTypesToEnable": [
+                    "string"
+                ],
+                "LogTypesToDisable": [
+                    "string"
+                ]
+            },
+            "ProcessorFeatures": [
+                {
+                    "Name": "string",
+                    "Value": "string"
+                }
+            ],
+            "IAMDatabaseAuthenticationEnabled": " ",
+            "AutomationMode": "",
+            "ResumeFullAutomationModeTime": "",
+            "StorageThroughput": " "
+        },
+        "LatestRestorableTime": "",
+        "MultiAZ": " ",
+        "EngineVersion": "string",
+        "AutoMinorVersionUpgrade": " ",
+        "ReadReplicaSourceDBInstanceIdentifier": "string",
+        "ReadReplicaDBInstanceIdentifiers": [
+            "string"
+        ],
+        "ReadReplicaDBClusterIdentifiers": [
+            "string"
+        ],
+        "ReplicaMode": "",
+        "LicenseModel": "string",
+        "Iops": " ",
+        "OptionGroupMemberships": [
+            {
+                "OptionGroupName": "string",
+                "Status": "string"
+            }
+        ],
+        "CharacterSetName": "string",
+        "NcharCharacterSetName": "string",
+        "SecondaryAvailabilityZone": "string",
+        "PubliclyAccessible": " ",
+        "StatusInfos": [
+            {
+                "StatusType": "string",
+                "Normal": " ",
+                "Status": "string",
+                "Message": "string"
+            }
+        ],
+        "StorageType": "string",
+        "TdeCredentialArn": "string",
+        "DbInstancePort": " ",
+        "DBClusterIdentifier": "string",
+        "StorageEncrypted": " ",
+        "KmsKeyId": "string",
+        "DbiResourceId": "string",
+        "CACertificateIdentifier": "string",
+        "DomainMemberships": [
+            {
+                "Domain": "string",
+                "Status": "string",
+                "FQDN": "string",
+                "IAMRoleName": "string"
+            }
+        ],
+        "CopyTagsToSnapshot": " ",
+        "MonitoringInterval": " ",
+        "EnhancedMonitoringResourceArn": "string",
+        "MonitoringRoleArn": "string",
+        "PromotionTier": " ",
+        "DBInstanceArn": "string",
+        "Timezone": "string",
+        "IAMDatabaseAuthenticationEnabled": " ",
+        "PerformanceInsightsEnabled": " ",
+        "PerformanceInsightsKMSKeyId": "string",
+        "PerformanceInsightsRetentionPeriod": " ",
+        "EnabledCloudwatchLogsExports": [
+            "string"
+        ],
+        "ProcessorFeatures": [
+            {
+                "Name": "string",
+                "Value": "string"
+            }
+        ],
+        "DeletionProtection": " ",
+        "AssociatedRoles": [
+            {
+                "RoleArn": "string",
+                "FeatureName": "string",
+                "Status": "string"
+            }
+        ],
+        "ListenerEndpoint": {
+            "Address": "string",
+            "Port": " ",
+            "HostedZoneId": "string"
+        },
+        "MaxAllocatedStorage": " ",
+        "TagList": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "DBInstanceAutomatedBackupsReplications": [
+            {
+                "DBInstanceAutomatedBackupsArn": "string"
+            }
+        ],
+        "CustomerOwnedIpEnabled": " ",
+        "AwsBackupRecoveryPointArn": "string",
+        "ActivityStreamStatus": "",
+        "ActivityStreamKmsKeyId": "string",
+        "ActivityStreamKinesisStreamName": "string",
+        "ActivityStreamMode": "",
+        "ActivityStreamEngineNativeAuditFieldsIncluded": " ",
+        "AutomationMode": "",
+        "ResumeFullAutomationModeTime": "",
+        "CustomIamInstanceProfile": "string",
+        "BackupTarget": "string",
+        "NetworkType": "string",
+        "ActivityStreamPolicyStatus": "",
+        "StorageThroughput": " ",
+        "DBSystemId": "string",
+        "MasterUserSecret": {
+            "SecretArn": "string",
+            "SecretStatus": "string",
+            "KmsKeyId": "string"
+        },
+        "CertificateDetails": {
+            "CAIdentifier": "string",
+            "ValidTill": ""
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "service_name": "s3",
+    "function_name": "list_directory_buckets",
+    "function_description": "list_directory_buckets",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "N",
+    "implclass": "_global_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "result_keys": [
+        "Buckets"
+    ],
+    "json_response": {
+        "Name": "",
+        "CreationDate": ""
+    }
+}

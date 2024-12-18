@@ -1,0 +1,33 @@
+{
+    "service_name": "cloudformation",
+    "function_name": "list_stack_sets",
+    "function_description": "stack sets that are associated",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Summaries"
+    ],
+    "json_response": {
+        "StackSetName": "string",
+        "StackSetId": "string",
+        "Description": "string",
+        "Status": "",
+        "AutoDeployment": {
+            "Enabled": "",
+            "RetainStacksOnAccountRemoval": ""
+        },
+        "PermissionModel": "",
+        "DriftStatus": "",
+        "LastDriftCheckTimestamp": "",
+        "ManagedExecution": {
+            "Active": ""
+        }
+    }
+}

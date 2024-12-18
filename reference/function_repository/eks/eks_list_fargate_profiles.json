@@ -1,0 +1,29 @@
+{
+    "service_name": "eks",
+    "function_name": "list_fargate_profiles",
+    "function_description": "List Farget profiles",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_3",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "clusterName",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "Name of EKS Cluster ",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "fargateProfileNames"
+    ],
+    "json_response": {
+        "fargateProfileName": ""
+    }
+}

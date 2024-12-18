@@ -1,0 +1,122 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_vpn_connections",
+    "function_description": "List VPCFlow logs",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "VpnConnections"
+    ],
+    "json_response": {
+        "CustomerGatewayConfiguration": "string",
+        "CustomerGatewayId": "string",
+        "Category": "string",
+        "State": "",
+        "Type": "ipsec.1",
+        "VpnConnectionId": "string",
+        "VpnGatewayId": "string",
+        "TransitGatewayId": "string",
+        "CoreNetworkArn": "string",
+        "CoreNetworkAttachmentArn": "string",
+        "GatewayAssociationState": "",
+        "Options": {
+            "EnableAcceleration": "",
+            "StaticRoutesOnly": "",
+            "LocalIpv4NetworkCidr": "string",
+            "RemoteIpv4NetworkCidr": "string",
+            "LocalIpv6NetworkCidr": "string",
+            "RemoteIpv6NetworkCidr": "string",
+            "OutsideIpAddressType": "string",
+            "TransportTransitGatewayAttachmentId": "string",
+            "TunnelInsideIpVersion": "",
+            "TunnelOptions": [
+                {
+                    "OutsideIpAddress": "string",
+                    "TunnelInsideCidr": "string",
+                    "TunnelInsideIpv6Cidr": "string",
+                    "PreSharedKey": "string",
+                    "Phase1LifetimeSeconds": "",
+                    "Phase2LifetimeSeconds": "",
+                    "RekeyMarginTimeSeconds": "",
+                    "RekeyFuzzPercentage": "",
+                    "ReplayWindowSize": "",
+                    "DpdTimeoutSeconds": "",
+                    "DpdTimeoutAction": "string",
+                    "Phase1EncryptionAlgorithms": [
+                        {
+                            "Value": "string"
+                        }
+                    ],
+                    "Phase2EncryptionAlgorithms": [
+                        {
+                            "Value": "string"
+                        }
+                    ],
+                    "Phase1IntegrityAlgorithms": [
+                        {
+                            "Value": "string"
+                        }
+                    ],
+                    "Phase2IntegrityAlgorithms": [
+                        {
+                            "Value": "string"
+                        }
+                    ],
+                    "Phase1DHGroupNumbers": [
+                        {
+                            "Value": ""
+                        }
+                    ],
+                    "Phase2DHGroupNumbers": [
+                        {
+                            "Value": ""
+                        }
+                    ],
+                    "IkeVersions": [
+                        {
+                            "Value": "string"
+                        }
+                    ],
+                    "StartupAction": "string",
+                    "LogOptions": {
+                        "CloudWatchLogOptions": {
+                            "LogEnabled": "",
+                            "LogGroupArn": "string",
+                            "LogOutputFormat": "string"
+                        }
+                    }
+                }
+            ]
+        },
+        "Routes": [
+            {
+                "DestinationCidrBlock": "string",
+                "Source": "Static",
+                "State": ""
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VgwTelemetry": [
+            {
+                "AcceptedRouteCount": "",
+                "LastStatusChange": "",
+                "OutsideIpAddress": "string",
+                "Status": "",
+                "StatusMessage": "",
+                "CertificateArn": ""
+            }
+        ]
+    }
+}

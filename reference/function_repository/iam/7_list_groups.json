@@ -1,0 +1,24 @@
+{
+    "service_name": "iam",
+    "function_name": "list_groups",
+    "function_description": "Lists all managed policies that are attached to the specified IAM role",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Groups"
+    ],
+    "json_response": {
+        "Path": "",
+        "GroupName": "",
+        "GroupId": "",
+        "Arn": "",
+        "CreateDate": ""
+    }
+}

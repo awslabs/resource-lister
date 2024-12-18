@@ -1,0 +1,30 @@
+{
+    "service_name": "iam",
+    "function_name": "list_attached_role_policies",
+    "function_description": "Lists all managed policies that are attached to the specified IAM role",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+         "pagination_attributes": [
+		        {
+		            "attribute_name": "RoleName",
+		            "attribute_value": "",
+		            "is_visible": "Y",
+		            "display_prompt": "Role Name",
+		            "type":"str"
+		        }
+    ],
+    "result_keys": [
+        "AttachedPolicies"
+    ],
+    "json_response": {
+        "PolicyName": "required",
+        "PolicyArn": "required"
+    }
+}

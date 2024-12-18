@@ -1,0 +1,92 @@
+{
+    "service_name": "emr",
+    "function_name": "list_instance_fleets",
+    "function_description": "List Instance fleets of EMR Cluster",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "ClusterId",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "Please enter the unique identifier of the cluster",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "InstanceFleets"
+    ],
+    "json_response": {
+        "Id": "string",
+        "Name": "string",
+        "Status": {
+            "State": "",
+            "StateChangeReason": {
+                "Code": "",
+                "Message": ""
+            },
+            "Timeline": {
+                "CreationDateTime": "",
+                "ReadyDateTime": "",
+                "EndDateTime": ""
+            }
+        },
+        "InstanceFleetType": "",
+        "TargetOnDemandCapacity": "",
+        "TargetSpotCapacity": "",
+        "ProvisionedOnDemandCapacity": "",
+        "ProvisionedSpotCapacity": "",
+        "InstanceTypeSpecifications": [
+            {
+                "InstanceType": "string",
+                "WeightedCapacity": "",
+                "BidPrice": "string",
+                "BidPriceAsPercentageOfOnDemandPrice": "",
+                "Configurations": [
+                    {
+                        "Classification": "string",
+                        "Properties": {
+                            "string": "string"
+                        }
+                    }
+                ],
+                "EbsBlockDevices": [
+                    {
+                        "VolumeSpecification": {
+                            "VolumeType": "string",
+                            "Iops": "string",
+                            "SizeInGB": "string",
+                            "Throughput": "string"
+                        },
+                        "Device": "string"
+                    }
+                ],
+                "EbsOptimized": "string",
+                "CustomAmiId": "string"
+            }
+        ],
+        "LaunchSpecifications": {
+            "SpotSpecification": {
+                "TimeoutDurationMinutes": "string",
+                "TimeoutAction": "",
+                "BlockDurationMinutes": "string",
+                "AllocationStrategy": "capacity-optimized"
+            },
+            "OnDemandSpecification": {
+                "AllocationStrategy": "lowest-price",
+                "CapacityReservationOptions": {
+                    "UsageStrategy": "",
+                    "CapacityReservationPreference": "",
+                    "CapacityReservationResourceGroupArn": "string"
+                }
+            }
+        }
+    }
+}

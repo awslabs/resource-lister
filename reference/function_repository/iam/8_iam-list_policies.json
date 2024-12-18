@@ -1,0 +1,36 @@
+{
+    "service_name": "iam",
+    "function_name": "list_policies",
+    "function_description": "List All the IAM Polices",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Policies"
+    ],
+    "json_response": {
+        "PolicyName": "required",
+        "PolicyId": "required",
+        "Arn": "required",
+        "Path": "string",
+        "DefaultVersionId": "string",
+        "AttachmentCount": "string",
+        "PermissionsBoundaryUsageCount": "string",
+        "IsAttachable": "string",
+        "Description": "string",
+        "CreateDate": "required",
+        "UpdateDate": "required",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ]
+    }
+}

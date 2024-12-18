@@ -1,0 +1,51 @@
+{
+    "service_name": "elbv2",
+    "function_name": "describe_load_balancers",
+    "function_description": "All of your load balancers.",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "LoadBalancers"
+    ],
+    "json_response": {
+        "LoadBalancerArn": "string",
+        "DNSName": "string",
+        "CanonicalHostedZoneId": "string",
+        "CreatedTime": "",
+        "LoadBalancerName": "string",
+        "Scheme": "",
+        "VpcId": "string",
+        "State": {
+            "Code": "",
+            "Reason": "string"
+        },
+        "Type": "",
+        "AvailabilityZones": [
+            {
+                "ZoneName": "string",
+                "SubnetId": "string",
+                "OutpostId": "string",
+                "LoadBalancerAddresses": [
+                    {
+                        "IpAddress": "string",
+                        "AllocationId": "string",
+                        "PrivateIPv4Address": "string",
+                        "IPv6Address": "string"
+                    }
+                ]
+            }
+        ],
+        "SecurityGroups": [
+            "string"
+        ],
+        "IpAddressType": "",
+        "CustomerOwnedIpv4Pool": "string"
+    }
+}

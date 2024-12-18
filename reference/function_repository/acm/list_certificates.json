@@ -1,0 +1,43 @@
+{
+    "service_name": "acm",
+    "function_name": "list_certificates",
+    "function_description": "Retrieves a list of certificate ARNs and domain names",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "implclass": "_regional_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "result_keys": [
+        "CertificateSummaryList"
+    ],
+    "json_response": {
+        "CertificateArn": "string",
+        "DomainName": "string",
+        "SubjectAlternativeNameSummaries": [
+            "String"
+        ],
+        "HasAdditionalSubjectAlternativeNames": "",
+        "Status": "",
+        "Type": "",
+        "KeyAlgorithm": "",
+        "KeyUsages": [
+            ""
+        ],
+        "ExtendedKeyUsages": [
+            ""
+        ],
+        "InUse": "",
+        "Exported": "",
+        "RenewalEligibility": "",
+        "NotBefore": "",
+        "NotAfter": "",
+        "CreatedAt": "",
+        "IssuedAt": "",
+        "ImportedAt": "",
+        "RevokedAt": ""
+    }
+}

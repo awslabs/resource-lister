@@ -1,0 +1,102 @@
+{
+    "service_name": "lambda",
+    "function_name": "list_functions",
+    "function_description": "List Lambda Functions",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Functions"
+    ],
+    "json_response": {
+        "FunctionName": "required",
+        "FunctionArn": "required",
+        "Runtime": "string",
+        "Role": "string",
+        "Handler": "string",
+        "CodeSize": "",
+        "Description": "",
+        "Timeout": "",
+        "MemorySize": "",
+        "LastModified": "",
+        "CodeSha256": "",
+        "Version": "",
+        "VpcConfig": {
+            "SubnetIds": [
+                "0"
+            ],
+            "SecurityGroupIds": [
+                "0"
+            ],
+            "VpcId": "string"
+        },
+        "DeadLetterConfig": {
+            "TargetArn": "0"
+        },
+        "Environment": {
+            "Variables": {
+                "string": "0"
+            },
+            "Error": {
+                "ErrorCode": "",
+                "Message": ""
+            }
+        },
+        "KMSKeyArn": "string",
+        "TracingConfig": {
+            "Mode": ""
+        },
+        "MasterArn": "",
+        "RevisionId": "",
+        "Layers": [
+            {
+                "Arn": "",
+                "CodeSize": "",
+                "SigningProfileVersionArn": "",
+                "SigningJobArn": ""
+            }
+        ],
+        "State": "string",
+        "StateReason": "string",
+        "StateReasonCode": "",
+        "LastUpdateStatus": "",
+        "LastUpdateStatusReason": "",
+        "LastUpdateStatusReasonCode": "",
+        "FileSystemConfigs": [
+            {
+                "Arn": "string",
+                "LocalMountPath": "string"
+            }
+        ],
+        "PackageType": "",
+        "ImageConfigResponse": {
+            "ImageConfig": {
+                "EntryPoint": [
+                    "string"
+                ],
+                "Command": [
+                    "string"
+                ],
+                "WorkingDirectory": "string"
+            },
+            "Error": {
+                "ErrorCode": "string",
+                "Message": "string"
+            }
+        },
+        "SigningProfileVersionArn": "string",
+        "SigningJobArn": "string",
+        "Architectures": [
+            ""
+        ],
+        "EphemeralStorage": {
+            "Size": ""
+        }
+    }
+}

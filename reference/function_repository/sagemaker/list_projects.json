@@ -1,0 +1,25 @@
+{
+    "service_name": "sagemaker",
+    "function_name": "list_projects",
+    "function_description": "Lists the Projects. ",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "ProjectSummaryList"
+    ],
+    "json_response": {
+        "ProjectName": "string",
+        "ProjectDescription": "string",
+        "ProjectArn": "string",
+        "ProjectId": "string",
+        "CreationTime": "",
+        "ProjectStatus": ""
+    }
+}

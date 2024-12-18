@@ -1,0 +1,41 @@
+{
+    "service_name": "iam",
+    "function_name": "list_roles",
+    "function_description": "Roles",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Roles"
+    ],
+    "json_response": {
+        "Path": "string",
+        "RoleName": "required",
+        "RoleId": "required",
+        "Arn": "required",
+        "CreateDate": "string",
+        "AssumeRolePolicyDocument": "string",
+        "Description": "string",
+        "MaxSessionDuration": "string",
+        "PermissionsBoundary": {
+            "PermissionsBoundaryType": "string",
+            "PermissionsBoundaryArn": "string"
+        },
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "RoleLastUsed": {
+            "LastUsedDate": "string",
+            "Region": "string"
+        }
+    }
+}

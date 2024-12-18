@@ -1,0 +1,40 @@
+{
+    "service_name": "route53domains",
+    "function_name": "list_prices",
+    "function_description": "Lists the following prices for either all the TLDs supported by Route 53",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Prices"
+    ],
+    "json_response": {
+        "Name": "string",
+        "RegistrationPrice": {
+            "Price": "",
+            "Currency": "string"
+        },
+        "TransferPrice": {
+            "Price": "",
+            "Currency": "string"
+        },
+        "RenewalPrice": {
+            "Price": "",
+            "Currency": "string"
+        },
+        "ChangeOwnershipPrice": {
+            "Price": "",
+            "Currency": "string"
+        },
+        "RestorationPrice": {
+            "Price": "",
+            "Currency": "string"
+        }
+    }
+}

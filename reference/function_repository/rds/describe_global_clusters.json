@@ -1,0 +1,43 @@
+{
+    "service_name": "rds",
+    "function_name": "describe_global_clusters",
+    "function_description": "Aurora global database clusters",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "GlobalClusters"
+    ],
+    "json_response": {
+        "GlobalClusterIdentifier": "string",
+        "GlobalClusterResourceId": "string",
+        "GlobalClusterArn": "string",
+        "Status": "string",
+        "Engine": "string",
+        "EngineVersion": "string",
+        "DatabaseName": "string",
+        "StorageEncrypted": "",
+        "DeletionProtection": "",
+        "GlobalClusterMembers": [
+            {
+                "DBClusterArn": "string",
+                "Readers": [
+                    "string"
+                ],
+                "IsWriter": "",
+                "GlobalWriteForwardingStatus": ""
+            }
+        ],
+        "FailoverState": {
+            "Status": "",
+            "FromDbClusterArn": "string",
+            "ToDbClusterArn": "string"
+        }
+    }
+}

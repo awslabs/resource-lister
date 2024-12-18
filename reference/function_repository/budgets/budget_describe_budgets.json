@@ -1,0 +1,82 @@
+{
+    "service_name": "budgets",
+    "function_name": "describe_budgets",
+    "function_description": "Lists all the buedgets",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "AccountId",
+            "attribute_value": "default",
+            "is_visible": "N",
+            "display_prompt": "",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "Budgets"
+    ],
+    "json_response": {
+        "BudgetName": "string",
+        "BudgetLimit": {
+            "Amount": "string",
+            "Unit": "string"
+        },
+        "PlannedBudgetLimits": {
+            "string": {
+                "Amount": "string",
+                "Unit": "string"
+            }
+        },
+        "CostFilters": {
+            "string": [
+                "string"
+            ]
+        },
+        "CostTypes": {
+            "IncludeTax": "",
+            "IncludeSubscription": "",
+            "UseBlended": "",
+            "IncludeRefund": "",
+            "IncludeCredit": "",
+            "IncludeUpfront": "",
+            "IncludeRecurring": "",
+            "IncludeOtherSubscription": "",
+            "IncludeSupport": "",
+            "IncludeDiscount": "",
+            "UseAmortized": ""
+        },
+        "TimeUnit": "",
+        "TimePeriod": {
+            "Start": "",
+            "End": ""
+        },
+        "CalculatedSpend": {
+            "ActualSpend": {
+                "Amount": "string",
+                "Unit": "string"
+            },
+            "ForecastedSpend": {
+                "Amount": "string",
+                "Unit": "string"
+            }
+        },
+        "BudgetType": "",
+        "LastUpdatedTime": "",
+        "AutoAdjustData": {
+            "AutoAdjustType": "",
+            "HistoricalOptions": {
+                "BudgetAdjustmentPeriod": "",
+                "LookBackAvailablePeriods": ""
+            },
+            "LastAutoAdjustTime": ""
+        }
+    }
+}

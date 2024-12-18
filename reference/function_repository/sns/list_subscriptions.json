@@ -1,0 +1,24 @@
+{
+    "service_name": "sns",
+    "function_name": "list_subscriptions",
+    "function_description": "List subscriptions",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Subscriptions"
+    ],
+    "json_response": {
+        "SubscriptionArn": "string",
+        "Owner": "string",
+        "Protocol": "string",
+        "Endpoint": "string",
+        "TopicArn": "string"
+    }
+}

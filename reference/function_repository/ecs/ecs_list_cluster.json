@@ -1,0 +1,20 @@
+{
+    "service_name": "ecs",
+    "function_name": "list_clusters",
+    "function_description": "List ECS Clusters",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_3",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "clusterArns"
+    ],
+    "json_response": {
+        "clusterArns": ""
+    }
+}

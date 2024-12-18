@@ -1,0 +1,44 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_flow_logs",
+    "function_description": "List VPCFlow logs",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "FlowLogs"
+    ],
+    "json_response": {
+        "CreationTime": "",
+        "DeliverLogsErrorMessage": "string",
+        "DeliverLogsPermissionArn": "string",
+        "DeliverCrossAccountRole": "string",
+        "DeliverLogsStatus": "string",
+        "FlowLogId": "string",
+        "FlowLogStatus": "string",
+        "LogGroupName": "string",
+        "ResourceId": "string",
+        "TrafficType": "",
+        "LogDestinationType": "",
+        "LogDestination": "string",
+        "LogFormat": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "MaxAggregationInterval": "",
+        "DestinationOptions": {
+            "FileFormat": "",
+            "HiveCompatiblePartitions": "",
+            "PerHourPartition": ""
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "service_name": "ecs",
+    "function_name": "list_services",
+    "function_description": "List ECS services",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_3",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "cluster",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The short name or full Amazon Resource Name (ARN) of the cluster ",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "serviceArns"
+    ],
+    "json_response": {
+        "ServiceArn": ""
+    }
+}

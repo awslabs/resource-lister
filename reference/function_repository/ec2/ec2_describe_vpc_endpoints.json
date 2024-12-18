@@ -1,0 +1,64 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_vpc_endpoints",
+    "function_description": "List VPC endpoints",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "csv_enforced_required_only": "Y",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "VpcEndpoints"
+    ],
+    "json_response": {
+        "VpcEndpointId": "string",
+        "VpcEndpointType": "",
+        "VpcId": "string",
+        "ServiceName": "string",
+        "State": "",
+        "RouteTableIds": [
+            "string"
+        ],
+        "SubnetIds": [
+            "string"
+        ],
+        "Groups": [
+            {
+                "GroupId": "string",
+                "GroupName": "string"
+            }
+        ],
+        "IpAddressType": "",
+        "DnsOptions": {
+            "DnsRecordIpType": ""
+        },
+        "PrivateDnsEnabled": "",
+        "RequesterManaged": "",
+        "NetworkInterfaceIds": [
+            "string"
+        ],
+        "DnsEntries": [
+            {
+                "DnsName": "string",
+                "HostedZoneId": "string"
+            }
+        ],
+        "CreationTimestamp": "",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "OwnerId": "string",
+        "LastError": {
+            "Message": "string",
+            "Code": "string"
+        }
+    }
+}

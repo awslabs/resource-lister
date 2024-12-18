@@ -1,0 +1,129 @@
+{
+    "service_name": "elasticache",
+    "function_name": "describe_cache_clusters",
+    "function_description": "Provisioned cluster",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "CacheClusters"
+    ],
+    "json_response": {
+        "CacheClusterId": "string",
+        "ConfigurationEndpoint": {
+            "Address": "string",
+            "Port": ""
+        },
+        "ClientDownloadLandingPage": "string",
+        "CacheNodeType": "string",
+        "Engine": "string",
+        "EngineVersion": "string",
+        "CacheClusterStatus": "string",
+        "NumCacheNodes": "",
+        "PreferredAvailabilityZone": "string",
+        "PreferredOutpostArn": "string",
+        "CacheClusterCreateTime": "",
+        "PreferredMaintenanceWindow": "string",
+        "PendingModifiedValues": {
+            "NumCacheNodes": "",
+            "CacheNodeIdsToRemove": [
+                "string"
+            ],
+            "EngineVersion": "string",
+            "CacheNodeType": "string",
+            "AuthTokenStatus": "",
+            "LogDeliveryConfigurations": [
+                {
+                    "LogType": "",
+                    "DestinationType": "",
+                    "DestinationDetails": {
+                        "CloudWatchLogsDetails": {
+                            "LogGroup": "string"
+                        },
+                        "KinesisFirehoseDetails": {
+                            "DeliveryStream": "string"
+                        }
+                    },
+                    "LogFormat": ""
+                }
+            ],
+            "TransitEncryptionEnabled": "",
+            "TransitEncryptionMode": ""
+        },
+        "NotificationConfiguration": {
+            "TopicArn": "string",
+            "TopicStatus": "string"
+        },
+        "CacheSecurityGroups": [
+            {
+                "CacheSecurityGroupName": "string",
+                "Status": "string"
+            }
+        ],
+        "CacheParameterGroup": {
+            "CacheParameterGroupName": "string",
+            "ParameterApplyStatus": "string",
+            "CacheNodeIdsToReboot": [
+                "string"
+            ]
+        },
+        "CacheSubnetGroupName": "string",
+        "CacheNodes": [
+            {
+                "CacheNodeId": "string",
+                "CacheNodeStatus": "string",
+                "CacheNodeCreateTime": "",
+                "Endpoint": {
+                    "Address": "string",
+                    "Port": ""
+                },
+                "ParameterGroupStatus": "string",
+                "SourceCacheNodeId": "string",
+                "CustomerAvailabilityZone": "string",
+                "CustomerOutpostArn": "string"
+            }
+        ],
+        "AutoMinorVersionUpgrade": "",
+        "SecurityGroups": [
+            {
+                "SecurityGroupId": "string",
+                "Status": "string"
+            }
+        ],
+        "ReplicationGroupId": "string",
+        "SnapshotRetentionLimit": "",
+        "SnapshotWindow": "string",
+        "AuthTokenEnabled": "",
+        "AuthTokenLastModifiedDate": "",
+        "TransitEncryptionEnabled": "",
+        "AtRestEncryptionEnabled": "",
+        "ARN": "string",
+        "ReplicationGroupLogDeliveryEnabled": "",
+        "LogDeliveryConfigurations": [
+            {
+                "LogType": "",
+                "DestinationType": "",
+                "DestinationDetails": {
+                    "CloudWatchLogsDetails": {
+                        "LogGroup": "string"
+                    },
+                    "KinesisFirehoseDetails": {
+                        "DeliveryStream": "string"
+                    }
+                },
+                "LogFormat": "",
+                "Status": "",
+                "Message": "string"
+            }
+        ],
+        "NetworkType": "",
+        "IpDiscovery": "",
+        "TransitEncryptionMode": ""
+    }
+}

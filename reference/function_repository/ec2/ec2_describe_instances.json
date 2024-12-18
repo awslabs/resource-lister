@@ -1,0 +1,239 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_instances",
+    "function_description": "List All Ec2 instances",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Reservations"
+    ],
+    "json_response": {
+        "Groups": [
+            {
+                "GroupName": "string",
+                "GroupId": "string"
+            }
+        ],
+        "Instances": [
+            {
+                "AmiLaunchIndex": "",
+                "ImageId": "string",
+                "InstanceId": "string",
+                "InstanceType": "",
+                "KernelId": "string",
+                "KeyName": "string",
+                "LaunchTime": "",
+                "Monitoring": {
+                    "State": ""
+                },
+                "Placement": {
+                    "AvailabilityZone": "string",
+                    "Affinity": "string",
+                    "GroupName": "string",
+                    "PartitionNumber": "",
+                    "HostId": "string",
+                    "Tenancy": "",
+                    "SpreadDomain": "string",
+                    "HostResourceGroupArn": "string",
+                    "GroupId": "string"
+                },
+                "Platform": "Windows",
+                "PrivateDnsName": "string",
+                "PrivateIpAddress": "string",
+                "ProductCodes": [
+                    {
+                        "ProductCodeId": "string",
+                        "ProductCodeType": ""
+                    }
+                ],
+                "PublicDnsName": "string",
+                "PublicIpAddress": "string",
+                "RamdiskId": "string",
+                "State": {
+                    "Code": "",
+                    "Name": ""
+                },
+                "StateTransitionReason": "string",
+                "SubnetId": "string",
+                "VpcId": "string",
+                "Architecture": "",
+                "BlockDeviceMappings": [
+                    {
+                        "DeviceName": "string",
+                        "Ebs": {
+                            "AttachTime": "",
+                            "DeleteOnTermination": "",
+                            "Status": "",
+                            "VolumeId": "string"
+                        }
+                    }
+                ],
+                "ClientToken": "string",
+                "EbsOptimized": "",
+                "EnaSupport": "",
+                "Hypervisor": "",
+                "IamInstanceProfile": {
+                    "Arn": "string",
+                    "Id": "string"
+                },
+                "InstanceLifecycle": "",
+                "ElasticGpuAssociations": [
+                    {
+                        "ElasticGpuId": "string",
+                        "ElasticGpuAssociationId": "string",
+                        "ElasticGpuAssociationState": "string",
+                        "ElasticGpuAssociationTime": "string"
+                    }
+                ],
+                "ElasticInferenceAcceleratorAssociations": [
+                    {
+                        "ElasticInferenceAcceleratorArn": "string",
+                        "ElasticInferenceAcceleratorAssociationId": "string",
+                        "ElasticInferenceAcceleratorAssociationState": "string",
+                        "ElasticInferenceAcceleratorAssociationTime": ""
+                    }
+                ],
+                "NetworkInterfaces": [
+                    {
+                        "Association": {
+                            "CarrierIp": "string",
+                            "CustomerOwnedIp": "string",
+                            "IpOwnerId": "string",
+                            "PublicDnsName": "string",
+                            "PublicIp": "string"
+                        },
+                        "Attachment": {
+                            "AttachTime": "",
+                            "AttachmentId": "string",
+                            "DeleteOnTermination": "",
+                            "DeviceIndex": "",
+                            "Status": "",
+                            "NetworkCardIndex": ""
+                        },
+                        "Description": "string",
+                        "Groups": [
+                            {
+                                "GroupName": "string",
+                                "GroupId": "string"
+                            }
+                        ],
+                        "Ipv6Addresses": [
+                            {
+                                "Ipv6Address": "string"
+                            }
+                        ],
+                        "MacAddress": "string",
+                        "NetworkInterfaceId": "string",
+                        "OwnerId": "string",
+                        "PrivateDnsName": "string",
+                        "PrivateIpAddress": "string",
+                        "PrivateIpAddresses": [
+                            {
+                                "Association": {
+                                    "CarrierIp": "string",
+                                    "CustomerOwnedIp": "string",
+                                    "IpOwnerId": "string",
+                                    "PublicDnsName": "string",
+                                    "PublicIp": "string"
+                                },
+                                "Primary": "",
+                                "PrivateDnsName": "string",
+                                "PrivateIpAddress": "string"
+                            }
+                        ],
+                        "SourceDestCheck": "",
+                        "Status": "",
+                        "SubnetId": "string",
+                        "VpcId": "string",
+                        "InterfaceType": "string",
+                        "Ipv4Prefixes": [
+                            {
+                                "Ipv4Prefix": "string"
+                            }
+                        ],
+                        "Ipv6Prefixes": [
+                            {
+                                "Ipv6Prefix": "string"
+                            }
+                        ]
+                    }
+                ],
+                "OutpostArn": "string",
+                "RootDeviceName": "string",
+                "RootDeviceType": "",
+                "SecurityGroups": [
+                    {
+                        "GroupName": "string",
+                        "GroupId": "string"
+                    }
+                ],
+                "SourceDestCheck": "",
+                "SpotInstanceRequestId": "string",
+                "SriovNetSupport": "string",
+                "StateReason": {
+                    "Code": "string",
+                    "Message": "string"
+                },
+                "Tags": [
+                    {
+                        "Key": "string",
+                        "Value": "string"
+                    }
+                ],
+                "VirtualizationType": "",
+                "CpuOptions": {
+                    "CoreCount": "",
+                    "ThreadsPerCore": ""
+                },
+                "CapacityReservationId": "string",
+                "CapacityReservationSpecification": {
+                    "CapacityReservationPreference": "",
+                    "CapacityReservationTarget": {
+                        "CapacityReservationId": "string",
+                        "CapacityReservationResourceGroupArn": "string"
+                    }
+                },
+                "HibernationOptions": {
+                    "Configured": ""
+                },
+                "Licenses": [
+                    {
+                        "LicenseConfigurationArn": "string"
+                    }
+                ],
+                "MetadataOptions": {
+                    "State": "",
+                    "HttpTokens": "",
+                    "HttpPutResponseHopLimit": "",
+                    "HttpEndpoint": "",
+                    "HttpProtocolIpv6": "",
+                    "InstanceMetadataTags": ""
+                },
+                "EnclaveOptions": {
+                    "Enabled": ""
+                },
+                "BootMode": "",
+                "PlatformDetails": "string",
+                "UsageOperation": "string",
+                "UsageOperationUpdateTime": "",
+                "PrivateDnsNameOptions": {
+                    "HostnameType": "",
+                    "EnableResourceNameDnsARecord": "",
+                    "EnableResourceNameDnsAAAARecord": ""
+                },
+                "Ipv6Address": "string",
+                "TpmSupport": "string",
+                "MaintenanceOptions": {
+                    "AutoRecovery": ""
+                }
+            }
+        ]
+    }
+}

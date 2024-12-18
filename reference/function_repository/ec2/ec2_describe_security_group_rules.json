@@ -1,0 +1,43 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_security_group_rules",
+    "function_description": "List All Security Groups Rules",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "SecurityGroupRules"
+    ],
+    "json_response": {
+        "SecurityGroupRuleId": "string",
+        "GroupId": "string",
+        "GroupOwnerId": "string",
+        "IsEgress": "",
+        "IpProtocol": "string",
+        "FromPort": "",
+        "ToPort": "",
+        "CidrIpv4": "string",
+        "CidrIpv6": "string",
+        "PrefixListId": "string",
+        "ReferencedGroupInfo": {
+            "GroupId": "string",
+            "PeeringStatus": "string",
+            "UserId": "string",
+            "VpcId": "string",
+            "VpcPeeringConnectionId": "string"
+        },
+        "Description": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ]
+    }
+}

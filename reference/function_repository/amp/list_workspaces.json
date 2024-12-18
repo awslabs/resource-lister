@@ -1,0 +1,30 @@
+{
+    "service_name": "amp",
+    "function_name": "list_workspaces",
+    "function_description": "Lists all of the Amazon Managed Service for Prometheus workspaces in your account",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "result_keys": [
+        "workspaces"
+    ],
+    "json_response": {
+        "alias": "string",
+        "arn": "string",
+        "createdAt": "",
+        "kmsKeyArn": "string",
+        "status": {
+            "statusCode": ""
+        },
+        "tags": {
+            "string": "string"
+        },
+        "workspaceId": "string"
+    }
+}

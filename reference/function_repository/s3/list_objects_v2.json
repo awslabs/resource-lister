@@ -1,0 +1,40 @@
+{
+    "service_name": "s3",
+    "function_name": "list_objects_v2",
+    "function_description": "List Objects",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "pagination_attributes": [
+        {
+            "attribute_name": "Bucket",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The name of the bucket containing the objects",
+            "type":"str"
+        }
+    ],
+    "validation_functions": "",
+    "is_multi_account_support": "N",
+    "result_keys": [
+        "Contents"
+    ],
+    "json_response": {
+        "Key": "string",
+        "LastModified": "",
+        "ETag": "string",
+        "ChecksumAlgorithm": [
+            ""
+        ],
+        "Size": "",
+        "StorageClass": "",
+        "Owner": {
+            "DisplayName": "string",
+            "ID": "string"
+        }
+    }
+}

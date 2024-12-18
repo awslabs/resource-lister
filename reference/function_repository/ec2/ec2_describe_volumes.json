@@ -1,0 +1,49 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_volumes",
+    "function_description": "Descirbe Volumes",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Volumes"
+    ],
+    "json_response": {
+        "Attachments": [
+            {
+                "AttachTime": "",
+                "Device": "string",
+                "InstanceId": "string",
+                "State": "",
+                "VolumeId": "string",
+                "DeleteOnTermination": ""
+            }
+        ],
+        "AvailabilityZone": "string",
+        "CreateTime": "",
+        "Encrypted": "",
+        "KmsKeyId": "string",
+        "OutpostArn": "string",
+        "Size": "",
+        "SnapshotId": "string",
+        "State": "",
+        "VolumeId": "string",
+        "Iops": "",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VolumeType": "",
+        "FastRestored": "",
+        "MultiAttachEnabled": "",
+        "Throughput": ""
+    }
+}

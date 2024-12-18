@@ -1,0 +1,38 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_addresses",
+    "function_description": "Describes the specified Elastic IP addresses",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Addresses"
+    ],
+    "json_response": {
+        "InstanceId": "string",
+        "PublicIp": "string",
+        "AllocationId": "string",
+        "AssociationId": "string",
+        "Domain": "",
+        "NetworkInterfaceId": "string",
+        "NetworkInterfaceOwnerId": "string",
+        "PrivateIpAddress": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "PublicIpv4Pool": "string",
+        "NetworkBorderGroup": "string",
+        "CustomerOwnedIp": "string",
+        "CustomerOwnedIpv4Pool": "string",
+        "CarrierIp": "string"
+    }
+}

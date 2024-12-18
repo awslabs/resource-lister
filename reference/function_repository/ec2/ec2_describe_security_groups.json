@@ -1,0 +1,102 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_security_groups",
+    "function_description": "List All Security Groups",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "SecurityGroups"
+    ],
+    "json_response": {
+        "Description": "string",
+        "GroupName": "string",
+        "IpPermissions": [
+            {
+                "FromPort": "",
+                "IpProtocol": "string",
+                "IpRanges": [
+                    {
+                        "CidrIp": "string",
+                        "Description": "string"
+                    }
+                ],
+                "Ipv6Ranges": [
+                    {
+                        "CidrIpv6": "string",
+                        "Description": "string"
+                    }
+                ],
+                "PrefixListIds": [
+                    {
+                        "Description": "string",
+                        "PrefixListId": "string"
+                    }
+                ],
+                "ToPort": "",
+                "UserIdGroupPairs": [
+                    {
+                        "Description": "string",
+                        "GroupId": "string",
+                        "GroupName": "string",
+                        "PeeringStatus": "string",
+                        "UserId": "string",
+                        "VpcId": "string",
+                        "VpcPeeringConnectionId": "string"
+                    }
+                ]
+            }
+        ],
+        "OwnerId": "string",
+        "GroupId": "string",
+        "IpPermissionsEgress": [
+            {
+                "FromPort": "",
+                "IpProtocol": "string",
+                "IpRanges": [
+                    {
+                        "CidrIp": "string",
+                        "Description": "string"
+                    }
+                ],
+                "Ipv6Ranges": [
+                    {
+                        "CidrIpv6": "string",
+                        "Description": "string"
+                    }
+                ],
+                "PrefixListIds": [
+                    {
+                        "Description": "string",
+                        "PrefixListId": "string"
+                    }
+                ],
+                "ToPort": "",
+                "UserIdGroupPairs": [
+                    {
+                        "Description": "string",
+                        "GroupId": "string",
+                        "GroupName": "string",
+                        "PeeringStatus": "string",
+                        "UserId": "string",
+                        "VpcId": "string",
+                        "VpcPeeringConnectionId": "string"
+                    }
+                ]
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VpcId": "string"
+    }
+}

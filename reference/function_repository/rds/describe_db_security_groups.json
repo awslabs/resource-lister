@@ -1,0 +1,38 @@
+{
+    "service_name": "rds",
+    "function_name": "describe_db_security_groups",
+    "function_description": "Returns a list of DBSecurityGroup descriptions",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "DBSecurityGroups"
+    ],
+    "json_response": {
+        "OwnerId": "string",
+        "DBSecurityGroupName": "string",
+        "DBSecurityGroupDescription": "string",
+        "VpcId": "string",
+        "EC2SecurityGroups": [
+            {
+                "Status": "string",
+                "EC2SecurityGroupName": "string",
+                "EC2SecurityGroupId": "string",
+                "EC2SecurityGroupOwnerId": "string"
+            }
+        ],
+        "IPRanges": [
+            {
+                "Status": "string",
+                "CIDRIP": "string"
+            }
+        ],
+        "DBSecurityGroupArn": "string"
+    }
+}

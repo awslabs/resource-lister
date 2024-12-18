@@ -1,0 +1,54 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_vpcs",
+    "function_description": "Descirbe VPCs",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Vpcs"
+    ],
+    "json_response": {
+        "CidrBlock": "string",
+        "DhcpOptionsId": "string",
+        "State": "string",
+        "VpcId": "string",
+        "OwnerId": "string",
+        "InstanceTenancy": "",
+        "Ipv6CidrBlockAssociationSet": [
+            {
+                "AssociationId": "string",
+                "Ipv6CidrBlock": "string",
+                "Ipv6CidrBlockState": {
+                    "State": "",
+                    "StatusMessage": "string"
+                },
+                "NetworkBorderGroup": "string",
+                "Ipv6Pool": "string"
+            }
+        ],
+        "CidrBlockAssociationSet": [
+            {
+                "AssociationId": "string",
+                "CidrBlock": "string",
+                "CidrBlockState": {
+                    "State": "",
+                    "StatusMessage": "string"
+                }
+            }
+        ],
+        "IsDefault": "",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ]
+    }
+}

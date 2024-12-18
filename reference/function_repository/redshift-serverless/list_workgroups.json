@@ -1,0 +1,59 @@
+{
+    "service_name": "redshift-serverless",
+    "function_name": "list_workgroups",
+    "function_description": "List work groups",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "workgroups"
+    ],
+    "json_response": {
+        "baseCapacity": "",
+        "configParameters": [
+            {
+                "parameterKey": "string",
+                "parameterValue": "string"
+            }
+        ],
+        "creationDate": "string",
+        "endpoint": {
+            "address": "string",
+            "port": "",
+            "vpcEndpoints": [
+                {
+                    "networkInterfaces": [
+                        {
+                            "availabilityZone": "string",
+                            "networkInterfaceId": "string",
+                            "privateIpAddress": "string",
+                            "subnetId": "string"
+                        }
+                    ],
+                    "vpcEndpointId": "string",
+                    "vpcId": "string"
+                }
+            ]
+        },
+        "enhancedVpcRouting": "string",
+        "namespaceName": "string",
+        "port": "",
+        "publiclyAccessible": "string",
+        "securityGroupIds": [
+            "string"
+        ],
+        "status": "",
+        "subnetIds": [
+            "string"
+        ],
+        "workgroupArn": "string",
+        "workgroupId": "string",
+        "workgroupName": "string"
+    }
+}

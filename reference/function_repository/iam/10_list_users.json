@@ -1,0 +1,35 @@
+{
+    "service_name": "iam",
+    "function_name": "list_users",
+    "function_description": "Lists the IAM users ",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Users"
+    ],
+    "json_response": {
+        "Path": "string",
+        "UserName": "string",
+        "UserId": "string",
+        "Arn": "string",
+        "CreateDate": "string",
+        "PasswordLastUsed": "string",
+        "PermissionsBoundary": {
+            "PermissionsBoundaryType": "PermissionsBoundaryPolicy",
+            "PermissionsBoundaryArn": "string"
+        },
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ]
+    }
+}

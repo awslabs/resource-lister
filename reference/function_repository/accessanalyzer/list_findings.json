@@ -1,0 +1,56 @@
+{
+    "service_name": "accessanalyzer",
+    "function_name": "list_findings",
+    "function_description": "Returns information about the access key IDs associated with the specified IAM user",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "analyzerArn",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The ARN of the analyzer to retrieve findings from",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "findings"
+    ],
+    "json_response": {
+        "id": "string",
+        "principal": {
+            "string": "string"
+        },
+        "action": [
+            "string"
+        ],
+        "resource": "string",
+        "isPublic": "string",
+        "resourceType": "",
+        "condition": {
+            "string": "string"
+        },
+        "createdAt": "",
+        "analyzedAt": "",
+        "updatedAt": "",
+        "status": "",
+        "resourceOwnerAccount": "string",
+        "error": "string",
+        "sources": [
+            {
+                "type": "",
+                "detail": {
+                    "accessPointArn": "string",
+                    "accessPointAccount": "string"
+                }
+            }
+        ]
+    }
+}

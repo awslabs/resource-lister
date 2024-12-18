@@ -1,0 +1,40 @@
+{
+    "service_name": "emr-serverless",
+    "function_name": "list_job_runs",
+    "function_description": "Lists job runs",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "applicationId",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The ID of the application for which to list the job run",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "jobRuns"
+    ],
+    "json_response": {
+        "applicationId": "string",
+        "id": "string",
+        "name": "string",
+        "arn": "string",
+        "createdBy": "string",
+        "createdAt": "string",
+        "updatedAt": "string",
+        "executionRole": "string",
+        "state": "",
+        "stateDetails": "string",
+        "releaseLabel": "string",
+        "type": "string"
+    }
+}

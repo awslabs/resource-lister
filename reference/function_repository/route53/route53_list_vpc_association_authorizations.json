@@ -1,0 +1,30 @@
+{
+    "service_name": "route53",
+    "function_name": "list_vpc_association_authorizations",
+    "function_description": "Gets a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone because youve submitted one or more CreateVPCAssociationAuthorization requests.",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "HostedZoneId",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "Hosted Zone Id",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "VPCs"
+    ],
+    "json_response": {
+        "VPCRegion": "",
+        "VPCId": "string"
+    }
+}

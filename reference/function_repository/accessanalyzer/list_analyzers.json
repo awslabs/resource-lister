@@ -1,0 +1,32 @@
+{
+    "service_name": "accessanalyzer",
+    "function_name": "list_analyzers",
+    "function_description": "Retrieves a list of analyzers.",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "result_keys": [
+        "analyzers"
+    ],
+    "json_response": {
+        "arn": "*",
+        "name": "*",
+        "type": "*",
+        "createdAt": "*",
+        "lastResourceAnalyzed": "",
+        "lastResourceAnalyzedAt": "",
+        "tags": {
+            "string": ""
+        },
+        "status": "",
+        "statusReason": {
+            "code": ""
+        }
+    }
+}

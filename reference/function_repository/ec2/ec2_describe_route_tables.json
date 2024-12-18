@@ -1,0 +1,66 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_route_tables",
+    "function_description": "Descirbe Route Tables",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "RouteTables"
+    ],
+    "json_response": {
+        "Associations": [
+            {
+                "Main": "",
+                "RouteTableAssociationId": "string",
+                "RouteTableId": "string",
+                "SubnetId": "string",
+                "GatewayId": "string",
+                "AssociationState": {
+                    "State": "",
+                    "StatusMessage": "string"
+                }
+            }
+        ],
+        "PropagatingVgws": [
+            {
+                "GatewayId": "string"
+            }
+        ],
+        "RouteTableId": "string",
+        "Routes": [
+            {
+                "DestinationCidrBlock": "string",
+                "DestinationIpv6CidrBlock": "string",
+                "DestinationPrefixListId": "string",
+                "EgressOnlyInternetGatewayId": "string",
+                "GatewayId": "string",
+                "InstanceId": "string",
+                "InstanceOwnerId": "string",
+                "NatGatewayId": "string",
+                "TransitGatewayId": "string",
+                "LocalGatewayId": "string",
+                "CarrierGatewayId": "string",
+                "NetworkInterfaceId": "string",
+                "Origin": "",
+                "State": "",
+                "VpcPeeringConnectionId": "",
+                "CoreNetworkArn": ""
+            }
+        ],
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VpcId": "string",
+        "OwnerId": "string"
+    }
+}

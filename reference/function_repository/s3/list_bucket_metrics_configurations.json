@@ -1,0 +1,47 @@
+{
+    "service_name": "s3",
+    "function_name": "list_bucket_metrics_configurations",
+    "function_description": "List Bucket Metrics Configurations",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "N",
+    "implclass": "_global_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "pagination_attributes": [
+        {
+            "attribute_name": "Bucket",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The name of the bucket",
+            "type": "str"
+        }
+    ],
+    "result_keys": [
+        "MetricsConfigurationList"
+    ],
+    "json_response": {
+        "Id": "string",
+        "Filter": {
+            "Prefix": "string",
+            "Tag": {
+                "Key": "string",
+                "Value": "string"
+            },
+            "AccessPointArn": "string",
+            "And": {
+                "Prefix": "string",
+                "Tags": [
+                    {
+                        "Key": "string",
+                        "Value": "string"
+                    }
+                ],
+                "AccessPointArn": "string"
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "service_name": "s3",
+    "function_name": "list_multipart_uploads",
+    "function_description": "list buckets",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "N",
+    "implclass": "_global_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "pagination_attributes": [
+        {
+            "attribute_name": "Bucket",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The name of the bucket",
+            "type": "str"
+        }
+    ],
+    "result_keys": [
+        "Uploads"
+    ],
+    "json_response": {
+        "Key": "required",
+        "LastModified": "required",
+        "ETag": "string",
+        "ChecksumAlgorithm": [
+            "string"
+        ],
+        "Size": "123",
+        "StorageClass": "required",
+        "Owner": {
+            "DisplayName": "string",
+            "ID": "string"
+        }
+    }
+}

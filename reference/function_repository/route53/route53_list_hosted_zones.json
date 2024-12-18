@@ -1,0 +1,31 @@
+{
+    "service_name": "route53",
+    "function_name": "list_hosted_zones",
+    "function_description": "Retrieves a list of the public and private hosted zones that are associated with the current Amazon Web Services account",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "HostedZones"
+    ],
+    "json_response": {
+        "Id": "string",
+        "Name": "string",
+        "CallerReference": "string",
+        "Config": {
+            "Comment": "string",
+            "PrivateZone": ""
+        },
+        "ResourceRecordSetCount": "",
+        "LinkedService": {
+            "ServicePrincipal": "string",
+            "Description": "string"
+        }
+    }
+}

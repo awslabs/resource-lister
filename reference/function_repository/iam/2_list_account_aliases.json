@@ -1,0 +1,20 @@
+{
+    "service_name": "iam",
+    "function_name": "list_account_aliases",
+    "function_description": "Lists the account alias associated with the Amazon Web Services account ",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_3",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "AccountAliases"
+    ],
+    "json_response": {
+        "AccountAliase": ""
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_transit_gateways",
+    "function_description": "List All transit_gateways",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "TransitGateways"
+    ],
+    "json_response": {
+        "TransitGatewayId": "string",
+        "TransitGatewayArn": "string",
+        "State": "",
+        "OwnerId": "",
+        "Description": "string",
+        "CreationTime": "",
+        "Options": {
+            "AmazonSideAsn": "",
+            "TransitGatewayCidrBlocks": [
+                "string"
+            ],
+            "AutoAcceptSharedAttachments": "",
+            "DefaultRouteTableAssociation": "",
+            "AssociationDefaultRouteTableId": "string",
+            "DefaultRouteTablePropagation": "",
+            "PropagationDefaultRouteTableId": "string",
+            "VpnEcmpSupport": "",
+            "DnsSupport": "",
+            "MulticastSupport": ""
+        },
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ]
+    }
+}

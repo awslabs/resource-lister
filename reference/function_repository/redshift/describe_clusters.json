@@ -1,0 +1,188 @@
+{
+    "service_name": "redshift",
+    "function_name": "describe_clusters",
+    "function_description": "Amazon Redshift returns all clusters ",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "Clusters"
+    ],
+    "json_response": {
+        "ClusterIdentifier": "string",
+        "NodeType": "string",
+        "ClusterStatus": "string",
+        "ClusterAvailabilityStatus": "string",
+        "ModifyStatus": "string",
+        "MasterUsername": "string",
+        "DBName": "string",
+        "Endpoint": {
+            "Address": "string",
+            "Port": "string",
+            "VpcEndpoints": [
+                {
+                    "VpcEndpointId": "string",
+                    "VpcId": "string",
+                    "NetworkInterfaces": [
+                        {
+                            "NetworkInterfaceId": "string",
+                            "SubnetId": "string",
+                            "PrivateIpAddress": "string",
+                            "AvailabilityZone": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        "ClusterCreateTime": "string",
+        "AutomatedSnapshotRetentionPeriod": "string",
+        "ManualSnapshotRetentionPeriod": "string",
+        "ClusterSecurityGroups": [
+            {
+                "ClusterSecurityGroupName": "string",
+                "Status": "string"
+            }
+        ],
+        "VpcSecurityGroups": [
+            {
+                "VpcSecurityGroupId": "string",
+                "Status": "string"
+            }
+        ],
+        "ClusterParameterGroups": [
+            {
+                "ParameterGroupName": "string",
+                "ParameterApplyStatus": "string",
+                "ClusterParameterStatusList": [
+                    {
+                        "ParameterName": "string",
+                        "ParameterApplyStatus": "string",
+                        "ParameterApplyErrorDescription": "string"
+                    }
+                ]
+            }
+        ],
+        "ClusterSubnetGroupName": "string",
+        "VpcId": "string",
+        "AvailabilityZone": "string",
+        "PreferredMaintenanceWindow": "string",
+        "PendingModifiedValues": {
+            "MasterUserPassword": "string",
+            "NodeType": "string",
+            "NumberOfNodes": "String ",
+            "ClusterType": "string",
+            "ClusterVersion": "string",
+            "AutomatedSnapshotRetentionPeriod": "String ",
+            "ClusterIdentifier": "string",
+            "PubliclyAccessible": "string",
+            "EnhancedVpcRouting": "string",
+            "MaintenanceTrackName": "string",
+            "EncryptionType": "string"
+        },
+        "ClusterVersion": "string",
+        "AllowVersionUpgrade": "string",
+        "NumberOfNodes": "string",
+        "PubliclyAccessible": "string",
+        "Encrypted": "string",
+        "RestoreStatus": {
+            "Status": "string",
+            "CurrentRestoreRateInMegaBytesPerSecond": "string",
+            "SnapshotSizeInMegaBytes": "string",
+            "ProgressInMegaBytes": "string",
+            "ElapsedTimeInSeconds": "string",
+            "EstimatedTimeToCompletionInSeconds": "string"
+        },
+        "DataTransferProgress": {
+            "Status": "string",
+            "CurrentRateInMegaBytesPerSecond": "String ",
+            "TotalDataInMegaBytes": "String ",
+            "DataTransferredInMegaBytes": "String ",
+            "EstimatedTimeToCompletionInSeconds": "String ",
+            "ElapsedTimeInSeconds": "String "
+        },
+        "HsmStatus": {
+            "HsmClientCertificateIdentifier": "string",
+            "HsmConfigurationIdentifier": "string",
+            "Status": "string"
+        },
+        "ClusterSnapshotCopyStatus": {
+            "DestinationRegion": "string",
+            "RetentionPeriod": "String ",
+            "ManualSnapshotRetentionPeriod": "String ",
+            "SnapshotCopyGrantName": "string"
+        },
+        "ClusterPublicKey": "string",
+        "ClusterNodes": [
+            {
+                "NodeRole": "string",
+                "PrivateIPAddress": "string",
+                "PublicIPAddress": "string"
+            }
+        ],
+        "ElasticIpStatus": {
+            "ElasticIp": "string",
+            "Status": "string"
+        },
+        "ClusterRevisionNumber": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "KmsKeyId": "string",
+        "EnhancedVpcRouting": "",
+        "IamRoles": [
+            {
+                "IamRoleArn": "string",
+                "ApplyStatus": "string"
+            }
+        ],
+        "PendingActions": [
+            "string"
+        ],
+        "MaintenanceTrackName": "string",
+        "ElasticResizeNumberOfNodeOptions": "string",
+        "DeferredMaintenanceWindows": [
+            {
+                "DeferMaintenanceIdentifier": "string",
+                "DeferMaintenanceStartTime": "string",
+                "DeferMaintenanceEndTime": "string"
+            }
+        ],
+        "SnapshotScheduleIdentifier": "string",
+        "SnapshotScheduleState": "",
+        "ExpectedNextSnapshotScheduleTime": "string",
+        "ExpectedNextSnapshotScheduleTimeStatus": "string",
+        "NextMaintenanceWindowStartTime": "string",
+        "ResizeInfo": {
+            "ResizeType": "string",
+            "AllowCancelResize": "string"
+        },
+        "AvailabilityZoneRelocationStatus": "string",
+        "ClusterNamespaceArn": "string",
+        "TotalStorageCapacityInMegaBytes": "String ",
+        "AquaConfiguration": {
+            "AquaStatus": "",
+            "AquaConfigurationStatus": ""
+        },
+        "DefaultIamRoleArn": "string",
+        "ReservedNodeExchangeStatus": {
+            "ReservedNodeExchangeRequestId": "string",
+            "Status": "",
+            "RequestTime": "string",
+            "SourceReservedNodeId": "string",
+            "SourceReservedNodeType": "string",
+            "SourceReservedNodeCount": "String ",
+            "TargetReservedNodeOfferingId": "string",
+            "TargetReservedNodeType": "string",
+            "TargetReservedNodeCount": "String "
+        }
+    }
+}

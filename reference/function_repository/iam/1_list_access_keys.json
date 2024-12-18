@@ -1,0 +1,23 @@
+{
+    "service_name": "iam",
+    "function_name": "list_access_keys",
+    "function_description": "Returns information about the access key IDs associated with the specified IAM user",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_global_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "AccessKeyMetadata"
+    ],
+    "json_response": {
+        "UserName": "required",
+        "AccessKeyId": "required",
+        "Status": "required",
+        "CreateDate": "required"
+    }
+}

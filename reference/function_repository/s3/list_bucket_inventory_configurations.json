@@ -1,0 +1,54 @@
+{
+    "service_name": "s3",
+    "function_name": "list_bucket_inventory_configurations",
+    "function_description": "Lists the S3 Inventory configuration",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "N",
+    "pagination_support": "N",
+    "implclass": "_global_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "pagination_attributes": [
+        {
+            "attribute_name": "Bucket",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "The name of the bucket",
+            "type": "str"
+        }
+    ],
+    "result_keys": [
+        "InventoryConfigurationList"
+    ],
+    "json_response": {
+        "Destination": {
+            "S3BucketDestination": {
+                "AccountId": "",
+                "Bucket": "",
+                "Format": "",
+                "Prefix": "",
+                "Encryption": {
+                    "SSES3": {},
+                    "SSEKMS": {
+                        "KeyId": ""
+                    }
+                }
+            }
+        },
+        "IsEnabled": "",
+        "Filter": {
+            "Prefix": ""
+        },
+        "Id": "",
+        "IncludedObjectVersions": "",
+        "OptionalFields": [
+            ""
+        ],
+        "Schedule": {
+            "Frequency": ""
+        }
+    }
+}

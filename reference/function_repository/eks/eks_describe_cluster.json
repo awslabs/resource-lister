@@ -1,0 +1,116 @@
+{
+    "service_name": "eks",
+    "function_name": "describe_cluster",
+    "function_description": "List EKS Clusters",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_1",
+    "function_type": "object",
+    "is_regional": "Y",
+    "pagination_support": "N",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_no_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "name",
+            "attribute_value": "",
+            "is_visible": "Y",
+            "display_prompt": "Name of EKS Cluster ",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "cluster"
+    ],
+    "json_response": {
+        "name": "string",
+        "arn": "string",
+        "createdAt": "",
+        "version": "string",
+        "endpoint": "string",
+        "roleArn": "string",
+        "resourcesVpcConfig": {
+            "subnetIds": [
+                "string"
+            ],
+            "securityGroupIds": [
+                "string"
+            ],
+            "clusterSecurityGroupId": "string",
+            "vpcId": "string",
+            "endpointPublicAccess": "",
+            "endpointPrivateAccess": "",
+            "publicAccessCidrs": [
+                "string"
+            ]
+        },
+        "kubernetesNetworkConfig": {
+            "serviceIpv4Cidr": "string",
+            "serviceIpv6Cidr": "string",
+            "ipFamily": ""
+        },
+        "logging": {
+            "clusterLogging": [
+                {
+                    "types": [
+                        ""
+                    ],
+                    "enabled": ""
+                }
+            ]
+        },
+        "identity": {
+            "oidc": {
+                "issuer": "string"
+            }
+        },
+        "status": "",
+        "certificateAuthority": {
+            "data": "string"
+        },
+        "clientRequestToken": "string",
+        "platformVersion": "string",
+        "tags": {
+            "string": "string"
+        },
+        "encryptionConfig": [
+            {
+                "resources": [
+                    "string"
+                ],
+                "provider": {
+                    "keyArn": "string"
+                }
+            }
+        ],
+        "connectorConfig": {
+            "activationId": "string",
+            "activationCode": "string",
+            "activationExpiry": "",
+            "provider": "string",
+            "roleArn": "string"
+        },
+        "id": "string",
+        "health": {
+            "issues": [
+                {
+                    "code": "",
+                    "message": "string",
+                    "resourceIds": [
+                        "string"
+                    ]
+                }
+            ]
+        },
+        "outpostConfig": {
+            "outpostArns": [
+                "string"
+            ],
+            "controlPlaneInstanceType": "string",
+            "controlPlanePlacement": {
+                "groupName": "string"
+            }
+        }
+    }
+}

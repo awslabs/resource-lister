@@ -1,0 +1,48 @@
+{
+    "service_name": "amp",
+    "function_name": "list_scrapers",
+    "function_description": "PrometheusService :The ListScrapers operation lists all of the scrapers in your account",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "is_multi_account_support": "Y",
+    "boto_session_type": "client",
+    "result_keys": [
+        "scrapers"
+    ],
+    "json_response": {
+        "alias": "string",
+        "arn": "string",
+        "createdAt": "",
+        "destination": {
+            "ampConfiguration": {
+                "workspaceArn": "string"
+            }
+        },
+        "lastModifiedAt": "",
+        "roleArn": "",
+        "scraperId": "",
+        "source": {
+            "eksConfiguration": {
+                "clusterArn": "",
+                "securityGroupIds": [
+                    ""
+                ],
+                "subnetIds": [
+                    ""
+                ]
+            }
+        },
+        "status": {
+            "statusCode": ""
+        },
+        "statusReason": "",
+        "tags": {
+            "string": ""
+        }
+    }
+}

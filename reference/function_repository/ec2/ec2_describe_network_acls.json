@@ -1,0 +1,54 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_network_acls",
+    "function_description": "Descirbe Network ACL",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "NetworkAcls"
+    ],
+    "json_response": {
+        "Associations": [
+            {
+                "NetworkAclAssociationId": "string",
+                "NetworkAclId": "string",
+                "SubnetId": "string"
+            }
+        ],
+        "Entries": [
+            {
+                "CidrBlock": "string",
+                "Egress": "",
+                "IcmpTypeCode": {
+                    "Code": "",
+                    "Type": ""
+                },
+                "Ipv6CidrBlock": "string",
+                "PortRange": {
+                    "From": "",
+                    "To": ""
+                },
+                "Protocol": "string",
+                "RuleAction": "",
+                "RuleNumber": ""
+            }
+        ],
+        "IsDefault": "",
+        "NetworkAclId": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "VpcId": "string",
+        "OwnerId": "string"
+    }
+}

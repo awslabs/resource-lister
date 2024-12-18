@@ -1,0 +1,163 @@
+{
+    "service_name": "rds",
+    "function_name": "describe_db_clusters",
+    "function_description": "Amazon Aurora DB clusters",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "DBClusters"
+    ],
+    "json_response": {
+        "AllocatedStorage": "",
+        "AvailabilityZones": [
+            "string"
+        ],
+        "BackupRetentionPeriod": "",
+        "CharacterSetName": "string",
+        "DatabaseName": "string",
+        "DBClusterIdentifier": "string",
+        "DBClusterParameterGroup": "string",
+        "DBSubnetGroup": "string",
+        "Status": "string",
+        "AutomaticRestartTime": "string",
+        "PercentProgress": "string",
+        "EarliestRestorableTime": "string",
+        "Endpoint": "string",
+        "ReaderEndpoint": "string",
+        "CustomEndpoints": [
+            "string"
+        ],
+        "MultiAZ": "",
+        "Engine": "string",
+        "EngineVersion": "string",
+        "LatestRestorableTime": "",
+        "Port": "",
+        "MasterUsername": "string",
+        "DBClusterOptionGroupMemberships": [
+            {
+                "DBClusterOptionGroupName": "string",
+                "Status": "string"
+            }
+        ],
+        "PreferredBackupWindow": "string",
+        "PreferredMaintenanceWindow": "string",
+        "ReplicationSourceIdentifier": "string",
+        "ReadReplicaIdentifiers": [
+            "string"
+        ],
+        "DBClusterMembers": [
+            {
+                "DBInstanceIdentifier": "string",
+                "IsClusterWriter": "",
+                "DBClusterParameterGroupStatus": "string",
+                "PromotionTier": ""
+            }
+        ],
+        "VpcSecurityGroups": [
+            {
+                "VpcSecurityGroupId": "string",
+                "Status": "string"
+            }
+        ],
+        "HostedZoneId": "string",
+        "StorageEncrypted": "",
+        "KmsKeyId": "string",
+        "DbClusterResourceId": "string",
+        "DBClusterArn": "string",
+        "AssociatedRoles": [
+            {
+                "RoleArn": "string",
+                "Status": "string",
+                "FeatureName": "string"
+            }
+        ],
+        "IAMDatabaseAuthenticationEnabled": "",
+        "CloneGroupId": "string",
+        "ClusterCreateTime": "",
+        "EarliestBacktrackTime": "",
+        "BacktrackWindow": "",
+        "BacktrackConsumedChangeRecords": "",
+        "EnabledCloudwatchLogsExports": [
+            "string"
+        ],
+        "Capacity": "",
+        "EngineMode": "string",
+        "ScalingConfigurationInfo": {
+            "MinCapacity": "",
+            "MaxCapacity": "",
+            "AutoPause": "",
+            "SecondsUntilAutoPause": "",
+            "TimeoutAction": "string",
+            "SecondsBeforeTimeout": ""
+        },
+        "DeletionProtection": "",
+        "HttpEndpointEnabled": "",
+        "ActivityStreamMode": "",
+        "ActivityStreamStatus": "",
+        "ActivityStreamKmsKeyId": "string",
+        "ActivityStreamKinesisStreamName": "string",
+        "CopyTagsToSnapshot": "",
+        "CrossAccountClone": "",
+        "DomainMemberships": [
+            {
+                "Domain": "string",
+                "Status": "string",
+                "FQDN": "string",
+                "IAMRoleName": "string"
+            }
+        ],
+        "TagList": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "GlobalWriteForwardingStatus": "",
+        "GlobalWriteForwardingRequested": "",
+        "PendingModifiedValues": {
+            "PendingCloudwatchLogsExports": {
+                "LogTypesToEnable": [
+                    "string"
+                ],
+                "LogTypesToDisable": [
+                    "string"
+                ]
+            },
+            "DBClusterIdentifier": "string",
+            "MasterUserPassword": "string",
+            "IAMDatabaseAuthenticationEnabled": "",
+            "EngineVersion": "string",
+            "BackupRetentionPeriod": "",
+            "AllocatedStorage": "",
+            "Iops": ""
+        },
+        "DBClusterInstanceClass": "string",
+        "StorageType": "string",
+        "Iops": "",
+        "PubliclyAccessible": "",
+        "AutoMinorVersionUpgrade": "",
+        "MonitoringInterval": "",
+        "MonitoringRoleArn": "string",
+        "PerformanceInsightsEnabled": "",
+        "PerformanceInsightsKMSKeyId": "string",
+        "PerformanceInsightsRetentionPeriod": "",
+        "ServerlessV2ScalingConfiguration": {
+            "MinCapacity": "",
+            "MaxCapacity": ""
+        },
+        "NetworkType": "string",
+        "DBSystemId": "string",
+        "MasterUserSecret": {
+            "SecretArn": "string",
+            "SecretStatus": "string",
+            "KmsKeyId": "string"
+        }
+    }
+}

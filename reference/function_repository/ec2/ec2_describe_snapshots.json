@@ -1,0 +1,52 @@
+{
+    "service_name": "ec2",
+    "function_name": "describe_snapshots",
+    "function_description": "Describe Snapshot",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "pagination_attributes": [
+        {
+            "attribute_name": "OwnerIds",
+            "attribute_value": [
+                "self"
+            ],
+            "is_visible": "N",
+            "display_prompt": "",
+            "type":"str"
+        }
+    ],
+    "result_keys": [
+        "Snapshots"
+    ],
+    "json_response": {
+        "DataEncryptionKeyId": "string",
+        "Description": "string",
+        "Encrypted": "",
+        "KmsKeyId": "string",
+        "OwnerId": "string",
+        "Progress": "string",
+        "SnapshotId": "string",
+        "StartTime": "",
+        "State": "",
+        "StateMessage": "string",
+        "VolumeId": "string",
+        "VolumeSize": "",
+        "OwnerAlias": "string",
+        "OutpostArn": "string",
+        "Tags": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "StorageTier": "",
+        "RestoreExpiryTime": ""
+    }
+}

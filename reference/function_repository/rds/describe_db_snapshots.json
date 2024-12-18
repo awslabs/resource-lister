@@ -1,0 +1,62 @@
+{
+    "service_name": "rds",
+    "function_name": "describe_db_snapshots",
+    "function_description": "Returns information about DB snapshots.",
+    "boto_session_type": "client",
+    "response_format": "FORMAT_2",
+    "function_type": "list",
+    "is_regional": "Y",
+    "pagination_support": "Y",
+    "is_multi_account_support": "Y",
+    "implclass": "_regional_paginate",
+    "implfunction": "process",
+    "validation_functions": "",
+    "result_keys": [
+        "DBSnapshots"
+    ],
+    "json_response": {
+        "DBSnapshotIdentifier": "string",
+        "DBInstanceIdentifier": "string",
+        "SnapshotCreateTime": "",
+        "Engine": "string",
+        "AllocatedStorage": "",
+        "Status": "string",
+        "Port": "",
+        "AvailabilityZone": "string",
+        "VpcId": "string",
+        "InstanceCreateTime": "",
+        "MasterUsername": "string",
+        "EngineVersion": "string",
+        "LicenseModel": "string",
+        "SnapshotType": "string",
+        "Iops": "",
+        "OptionGroupName": "string",
+        "PercentProgress": "",
+        "SourceRegion": "string",
+        "SourceDBSnapshotIdentifier": "string",
+        "StorageType": "string",
+        "TdeCredentialArn": "string",
+        "Encrypted": "",
+        "KmsKeyId": "string",
+        "DBSnapshotArn": "string",
+        "Timezone": "string",
+        "IAMDatabaseAuthenticationEnabled": "",
+        "ProcessorFeatures": [
+            {
+                "Name": "string",
+                "Value": "string"
+            }
+        ],
+        "DbiResourceId": "string",
+        "TagList": [
+            {
+                "Key": "string",
+                "Value": "string"
+            }
+        ],
+        "OriginalSnapshotCreateTime": "",
+        "SnapshotDatabaseTime": "",
+        "SnapshotTarget": "string",
+        "StorageThroughput": ""
+    }
+}
