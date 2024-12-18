@@ -185,6 +185,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <summary>
 <b> Supported Services and Functionality  </b>
 </summary>
+</details>
 <table>
 <tbody>
 <tr>
@@ -195,8 +196,50 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> accessanalyzer</td>
 <td>
 <ul>
-<li>1.List of IAM Analyzers</li>
-<li>2.List of findings for specified  IAM Analyzer</li>
+<li>1.list_analyzers</li>
+<li>2.list_findings</li>
+<li>3.list_findings_v2</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> account</td>
+<td>
+<ul>
+<li>4.list_regions</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> acm</td>
+<td>
+<ul>
+<li>5.list_certificates</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> amp</td>
+<td>
+<ul>
+<li>6.list_scrapers</li>
+<li>7.list_workspaces</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> apigateway</td>
+<td>
+<ul>
+<li>8.get_rest_apis</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> appflow</td>
+<td>
+<ul>
+<li>9.list_connectors</li>
 </ul>
 </td>
 </tr>
@@ -204,7 +247,15 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> budgets</td>
 <td>
 <ul>
-<li>3.List of budgets</li>
+<li>10.describe_budgets</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> cleanrooms</td>
+<td>
+<ul>
+<li>11.list_collaborations</li>
 </ul>
 </td>
 </tr>
@@ -212,7 +263,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> cloudformation</td>
 <td>
 <ul>
-<li>4.List of Cloudformation Stacks</li>
+<li>12.list_stacks</li>
+<li>13.list_stack_sets</li>
 </ul>
 </td>
 </tr>
@@ -220,8 +272,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> cloudfront</td>
 <td>
 <ul>
-<li>5.List of CloudFront distributions</li>
-<li>6.List of CloudFront functions</li>
+<li>14.list_distributions</li>
+<li>15.list_functions</li>
 </ul>
 </td>
 </tr>
@@ -229,7 +281,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> cloudtrail</td>
 <td>
 <ul>
-<li>7.List of  Cloud Trails</li>
+<li>16.list_trails</li>
 </ul>
 </td>
 </tr>
@@ -237,8 +289,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> cloudwatch</td>
 <td>
 <ul>
-<li>8.List of Cloudwatch Dashboards</li>
-<li>9.List of Cloudwatch Metrics</li>
+<li>17.list_dashboards</li>
+<li>18.list_metrics</li>
 </ul>
 </td>
 </tr>
@@ -246,7 +298,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> codecommit</td>
 <td>
 <ul>
-<li>10.List of Code commit Repositories</li>
+<li>19.list_repositories</li>
 </ul>
 </td>
 </tr>
@@ -254,7 +306,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> dynamodb</td>
 <td>
 <ul>
-<li>11.List of DynamoDB tables</li>
+<li>20.list_tables</li>
 </ul>
 </td>
 </tr>
@@ -262,21 +314,21 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> ec2</td>
 <td>
 <ul>
-<li>12.List of EC2 instances </li>
-<li>13.Describes the specified Elastic IP addresses </li>
-<li>14.List of VPCs</li>
-<li>15.List of EBS volumes</li>
-<li>16.List of flow logs </li>
-<li>17.List of Network ACLs</li>
-<li>18.List of Route tables</li>
-<li>19.List of Security Groups</li>
-<li>20.List of Security Group Rules</li>
-<li>21.List of all the snapshots (self taken)</li>
-<li>22.List of Subnets</li>
-<li>23.List of Transit Gateways (TGW)</li>
-<li>24.List of VPC endpoints</li>
-<li>25.List of all the VPC Peering connections</li>
-<li>26.List of VPN connections</li>
+<li>21.describe_addresses</li>
+<li>22.describe_flow_logs</li>
+<li>23.describe_instances</li>
+<li>24.describe_network_acls</li>
+<li>25.describe_route_tables</li>
+<li>26.describe_security_groups</li>
+<li>27.describe_security_group_rules</li>
+<li>28.describe_snapshots</li>
+<li>29.describe_subnets</li>
+<li>30.describe_transit_gateways</li>
+<li>31.describe_volumes</li>
+<li>32.describe_vpcs</li>
+<li>33.describe_vpc_endpoints</li>
+<li>34.describe_vpc_peering_connections</li>
+<li>35.describe_vpn_connections</li>
 </ul>
 </td>
 </tr>
@@ -284,9 +336,9 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> ecs</td>
 <td>
 <ul>
-<li>27.List of ECS clusters</li>
-<li>28.List of  ECS Services in specified ECS Cluster</li>
-<li>29.List ECS Tasks in specified ECS Cluster</li>
+<li>36.list_clusters</li>
+<li>37.list_services</li>
+<li>38.list_tasks</li>
 </ul>
 </td>
 </tr>
@@ -294,7 +346,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> efs</td>
 <td>
 <ul>
-<li>30.List of EFS</li>
+<li>39.describe_file_systems</li>
 </ul>
 </td>
 </tr>
@@ -302,9 +354,17 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> eks</td>
 <td>
 <ul>
-<li>31.Describe details of specified EKS Cluster</li>
-<li>32.List of EKS Clusters</li>
-<li>33.List EKS Fargate profiles in specified EKS Cluster</li>
+<li>40.describe_cluster</li>
+<li>41.list_clusters</li>
+<li>42.list_fargate_profiles</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> elasticache</td>
+<td>
+<ul>
+<li>43.describe_cache_clusters</li>
 </ul>
 </td>
 </tr>
@@ -312,7 +372,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> elbv2</td>
 <td>
 <ul>
-<li>34.List of load balancers (Application, Network) </li>
+<li>44.describe_load_balancers</li>
 </ul>
 </td>
 </tr>
@@ -320,10 +380,10 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> emr</td>
 <td>
 <ul>
-<li>35.List of Provisioned EMR Clusters</li>
-<li>36.List of notebook executions.</li>
-<li>37.List of all the EMR Studios </li>
-<li>38.List of Instance fleets for specific EMR cluster</li>
+<li>45.list_clusters</li>
+<li>46.list_instance_fleets</li>
+<li>47.list_notebook_executions</li>
+<li>48.list_studios</li>
 </ul>
 </td>
 </tr>
@@ -331,8 +391,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> emr-serverless</td>
 <td>
 <ul>
-<li>39.List of EMR Serverless applications</li>
-<li>40.List of EMR Serverless Job runs for specified EMR serverless application</li>
+<li>49.list_applications</li>
+<li>50.list_job_runs</li>
 </ul>
 </td>
 </tr>
@@ -340,9 +400,16 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> iam</td>
 <td>
 <ul>
-<li>41.List of IAM Roles</li>
-<li>42. List of Managed policies (AWS and Your owned)</li>
-<li>43. List of IAM users</li>
+<li>51.list_users</li>
+<li>52.list_access_keys</li>
+<li>53.list_account_aliases</li>
+<li>54.list_attached_group_policies</li>
+<li>55.list_attached_role_policies</li>
+<li>56.list_attached_user_policies</li>
+<li>57.list_group_policies</li>
+<li>58.list_groups</li>
+<li>59.list_policies</li>
+<li>60.list_roles</li>
 </ul>
 </td>
 </tr>
@@ -350,7 +417,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> kms</td>
 <td>
 <ul>
-<li>44.List of KMS keys</li>
+<li>61.list_keys</li>
 </ul>
 </td>
 </tr>
@@ -358,8 +425,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> lambda</td>
 <td>
 <ul>
-<li>45.List of Lambda functions</li>
-<li>46.List of  Lambda layers </li>
+<li>62.list_functions</li>
+<li>63.list_layers</li>
 </ul>
 </td>
 </tr>
@@ -367,8 +434,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> organizations</td>
 <td>
 <ul>
-<li>47. List of accounts in the organization </li>
-<li>48. List of Service Control Policies (SCP) in an organization </li>
+<li>64.list_accounts</li>
+<li>65.list_policies</li>
 </ul>
 </td>
 </tr>
@@ -376,11 +443,11 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> rds</td>
 <td>
 <ul>
-<li>49.List of Aurora DB clusters</li>
-<li>50.List of provisioned RDS instances </li>
-<li>51.List  of DB Security Groups</li>
-<li>52.List of Database Sanpshots</li>
-<li>53.List of Global aurora clusters</li>
+<li>66.describe_db_clusters</li>
+<li>67.describe_db_instances</li>
+<li>68.describe_db_security_groups</li>
+<li>69.describe_db_snapshots</li>
+<li>70.describe_global_clusters</li>
 </ul>
 </td>
 </tr>
@@ -388,7 +455,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> redshift</td>
 <td>
 <ul>
-<li>54.List of Redshift clusters</li>
+<li>71.describe_clusters</li>
 </ul>
 </td>
 </tr>
@@ -396,8 +463,16 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> redshift-serverless</td>
 <td>
 <ul>
-<li>55.List of Redshift serverless namespaces</li>
-<li>56.List of Redshift serverless workgroups</li>
+<li>72.list_namespaces</li>
+<li>73.list_workgroups</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td> resourcegroupstaggingapi</td>
+<td>
+<ul>
+<li>74.get_resources</li>
 </ul>
 </td>
 </tr>
@@ -405,9 +480,10 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> route53</td>
 <td>
 <ul>
-<li>57.List of all the Route53 CIDRs </li>
-<li>58.List of hosted zones(public and private)</li>
-<li>59.List of  private hosted zones associated with specified VPC</li>
+<li>75.list_cidr_blocks</li>
+<li>76.list_hosted_zones</li>
+<li>77.list_hosted_zones_by_vpc</li>
+<li>78.list_vpc_association_authorizations</li>
 </ul>
 </td>
 </tr>
@@ -415,8 +491,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> route53domains</td>
 <td>
 <ul>
-<li>60.List of Route53 Domains</li>
-<li>61.Info of Route53 Domain pricing</li>
+<li>79.list_domains</li>
+<li>80.list_prices</li>
 </ul>
 </td>
 </tr>
@@ -424,8 +500,14 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> s3</td>
 <td>
 <ul>
-<li>62.List of S3 buckets</li>
-<li>63.List of the objects in a S3 Bucket</li>
+<li>81.list_buckets</li>
+<li>82.list_bucket_analytics_configurations</li>
+<li>83.list_bucket_intelligent_tiering_configurations</li>
+<li>84.list_bucket_inventory_configurations</li>
+<li>85.list_bucket_metrics_configurations</li>
+<li>86.list_directory_buckets</li>
+<li>87.list_multipart_uploads</li>
+<li>88.list_objects_v2</li>
 </ul>
 </td>
 </tr>
@@ -433,11 +515,11 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> sagemaker</td>
 <td>
 <ul>
-<li>64.List of SageMaker Domains</li>
-<li>65.List of SageMaker Images</li>
-<li>66.List of SageMaker Models</li>
-<li>67.List of SageMaker Projects</li>
-<li>68.List of SageMaker User Profiles</li>
+<li>89.list_domains</li>
+<li>90.list_images</li>
+<li>91.list_models</li>
+<li>92.list_projects</li>
+<li>93.list_user_profiles</li>
 </ul>
 </td>
 </tr>
@@ -445,8 +527,8 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> sns</td>
 <td>
 <ul>
-<li>69.List of SNS subscriptions</li>
-<li>70.List of SNS topics</li>
+<li>94.list_subscriptions</li>
+<li>95.list_topics</li>
 </ul>
 </td>
 </tr>
@@ -454,7 +536,7 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> sqs</td>
 <td>
 <ul>
-<li>71.List of SQS queues</li>
+<li>96.list_queues</li>
 </ul>
 </td>
 </tr>
@@ -462,13 +544,13 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 <td> ssm</td>
 <td>
 <ul>
-<li>72.Describe Instance Information (OS version)</li>
+<li>97.describe_instance_information</li>
 </ul>
 </td>
 </tr>
 </tbody>
-</table>
-</details> 
+<table>
+
 
 
 

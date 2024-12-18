@@ -68,12 +68,4 @@ class ConfigAttributes():
         ConfigAttributes.load_config_attributes()
 
 
-if __name__ == "__main__":
-    json_data = {
-        "format_type": "csv",
-        "output_to": "file",
-        "required": "no",
-        "account_split": "no",
-        "s3_bucket": "bbc"
 
-    }

@@ -224,7 +224,7 @@ def get_file_path(service_name, function_name, date_append, dir_path, file_type)
     """
     if not os.path.exists(dir_path):
         ValueError("Invalid Path to store the file  {}".format(dir_path))
-    file_name =""
+    file_name = ""
     if date_append == "yes":
         current_date = datetime.datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
         file_name = f"{service_name}_{function_name}_{current_date}.{file_type}"

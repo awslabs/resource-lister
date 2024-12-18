@@ -1,6 +1,3 @@
-
-import os
-import sys
 import logging
 import resource_lister.util.setup as setup
 import resource_lister.menu.menu_util as menu_util
@@ -15,13 +12,11 @@ OUTPUT_DIVIDER = '''
 '''
 
 DISCLAIMER = '''
-DISCLAIMER :
-This is  NO CODE Python Intractive Utility to list AWS resources 
-across AWS Accounts.
-WARNING :
-To generate the list of AWS Resources Utility will make boto3  List API calls 
-on configured accounts.These API calls will applied to your API Account Quotas.
-V2.1
+Disclaimer: This is a Python interactive utility for listing AWS resources across AWS accounts and accross regions. 
+Caution: To generate the list of AWS resources, 
+this utility will make boto3 List API calls on the configured accounts. 
+These API calls will count towards your API account quotas and throttling limits.
+Version : V2.0
 '''
 
 
@@ -50,7 +45,7 @@ def print_disclaimer():
 def print_help():
     help_menu = ["1. [Manage AWS Account]", "2. [List configured AWS Accounts]",
                 "3. [List AWS Regions]", "4. [List configured AWS services]","5. [List configured AWS functions]",
-                "6. [Manage Configurations (example : format_type, output_type)]","7. [Batch Processing]"]
+                "6. [Manage Configurations (example : format_type, output_type)]","7. [Batch Processing]","8. [Generate Config files]"]
     help_menu_link = "MENU [MAIN-->HELP]"
     help_menu_question = "Select one of following options :"
     exit_menu = ["0. [Exit from HELP]", "-1.[Return to previous menu]"]
@@ -135,10 +130,14 @@ def process_help():
             if confrm_msg.upper() == "YES":
                 batch_processing.process_batch()
 
-        else:
-            print("Please enter valid option [0,1,2,3,4,5,6,7]")
-    process_input()
+        elif input_value == "8":
+            print_line()
+            setup.generate_configfiles_setup()
+            print_line()
 
+        else:
+            print("Please enter valid option [0,1,2,3,4,5,6,7,8]")
+    process_input()
 
 
 
@@ -146,7 +145,6 @@ def process_input():
     menu_option = -999
     while menu_option != 0:
         try:
-            print_line()
             process_config = None
             print_menu_header("MENU [MAIN]")
             input_value = input("Enter AWS service for help (help) for Exit(0) :-->").strip().lower()

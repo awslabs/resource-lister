@@ -10,12 +10,12 @@ def configure_master_arn_config():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         acounts_menu_configs.master_account_arn_config, input_json)
-    master_account_role_arn = input_json_value["master_account_role_arn"]
+    master_account_role_arn = input_json_value["master_account_role_arn"].strip()
     input_json["account_id"] = master_account_role_arn[13:25]
     input_json["account_description"] = "Master Account "
-    input_json["account_config_type"] = input_json_value["account_config_type"]
+    input_json["account_config_type"] = input_json_value["account_config_type"].strip()
     input_json["master_account_role_arn"] = master_account_role_arn
-    input_json["child_account_assume_role_name"] = input_json_value["child_account_assume_role_name"]
+    input_json["child_account_assume_role_name"] = input_json_value["child_account_assume_role_name"].strip()
     input_json["email"] = ""
     account_config_util.upsert_master_account(input_json)
     # Print statement to print output to command prompt

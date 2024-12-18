@@ -26,7 +26,7 @@ def modify_formate_type():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.formate_type_config, input_json)
-    format_type = input_json_value["format_type"]
+    format_type = input_json_value["format_type"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["format_type"] = format_type
@@ -43,7 +43,7 @@ def modify_output_to():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.output_to_config, input_json)
-    output_to = input_json_value["output_to"]
+    output_to = input_json_value["output_to"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["output_to"] = output_to
@@ -77,7 +77,7 @@ def modify_account_wise():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.account_split_config, input_json)
-    account_split = input_json_value["account_split"]
+    account_split = input_json_value["account_split"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["account_split"] = account_split
@@ -95,7 +95,7 @@ def modify_s3_bucket():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.s3_config, input_json)
-    s3_bucket = input_json_value["s3_bucket"]
+    s3_bucket = input_json_value["s3_bucket"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["s3_bucket"] = s3_bucket
@@ -112,7 +112,7 @@ def modify_file_append_date():
     input_json = dict()
     input_json_value = menu_util.process_inputs(
         config_menu_configs.file_append_date_config, input_json)
-    file_append_date = input_json_value["file_append_date"]
+    file_append_date = input_json_value["file_append_date"].strip()
     config_attributes = dict(
         config_util.ConfigAttributes.get_config_attributes())
     config_attributes["file_append_date"] = file_append_date

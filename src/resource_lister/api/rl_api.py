@@ -43,7 +43,7 @@ class RLApi():
             "required": "no",
             "account_split": "no",
             "s3_bucket": "",
-            "file_append_date": "no"
-            "output_to":"None"
+            "file_append_date": "no",
+            "output_to":"none"
         }  
         return core_processor_api.process_rl_api(accounts, service_name, function_name, attributes) 

@@ -42,8 +42,8 @@ def service_response_formatter(service_name, function_name, response, attributes
                 pagination = True
         if "required_only" in attributes:
             required_only = True
-        if "date_append" in attributes:
-            date_append = attributes["date_append"]
+        if "file_append_date" in attributes:
+            date_append = attributes["file_append_date"]
     if output_path is None:
         output_path = os.getcwd()
     json_config = None

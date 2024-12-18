@@ -94,6 +94,7 @@ class MenuData():
 
     @classmethod
     def load_attributes(cls):
+        config_util.ConfigAttributes.load_config_attributes()
         MenuData.__attributes = config_util.ConfigAttributes.get_config_attributes()
 
     @classmethod

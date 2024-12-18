@@ -243,3 +243,37 @@ account_menu_config = {
 }
 
 
+
+config_generator_util_config = [{
+    "id": "input_dir_path",
+    "display_prompt": "Please specify the complete input directory path where the configuration files are located[example C:\\abc\\configs].",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory","check_dir_path"]
+},
+    {
+    "id": "output_dir_path",
+    "display_prompt": "Please specify the complete output directory where the  configuration files will be generated.",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory","check_dir_path"]
+}
+
+]
+
+
+config_generator_menu_config = {
+    "menu": {
+        "0": {
+            "menu_link": "MENU [MAIN-->HELP-->Generate service configuration files]",
+            "menu_question": "Please select any of following option:",
+            "menu_options": [
+                {"display_name": "Generate service configuration files.",
+                 "action": "True",
+                 "function_name": "process_config_files"
+
+                 }
+            ]
+    }
+}
+}
+
+
