@@ -147,41 +147,96 @@ def format_str_list(json_config, json_object_list, required_only, prefix_columns
         result_row[column_key] = str_obj
         result_json_list.append(result_row)
     return result_json_list
+# def format_json_object(json_config, json_object_raw, prefix_columns=None):
+#     """
+#     Compare Json_object with reference json(json_config) and generate JSON Object
+#     1. Flatten the object
+#     2. Get Keys of reference JSON
+#     3. Iterate over reference JSON keys and generate result row
+#     4. Update result rows with not found keys (Extra Columns)
+#     :param json_config -reference json
+#     :param json_object_raw  - json object to be formatted
+#     :return: return json object formated in line with json_config
+#     """
+#     json_config_keys = json_config.keys()
+#     # 2 Flatten the object
+#     json_object = flatten_json(json_object_raw)
+#     result_row = {}
+#     keys_present_list = []
+#     # 3. Get keys of reference JSON
+#     json_object_keys = json_object.keys()
+#     # 4 Go Through All the keys of reference JSON
+#     if prefix_columns:
+#         for prefix_column_header in prefix_columns.keys():
+#             result_row[prefix_column_header] = prefix_columns[prefix_column_header]
+
+#     for json_config_key in json_config_keys:
+#         if json_config_key in json_object_keys:
+#             result_row[json_config_key] = str(json_object[json_config_key])
+#             keys_present_list.append(json_config_key)
+#         else:
+#             result_row[json_config_key] = ""
+#     # 5. Append Extra Cloumns as pipe seprated Key/Value
+#     extra_rows = [i for i in json_object_keys if i not in keys_present_list]
+#     for extra_row_key in extra_rows:
+#         result_row[extra_row_key] = "{}|{}".format(
+#             extra_row_key, json_object[extra_row_key])
+#     return result_row
 
 
-
-def format_json_object(json_config, json_object_raw):
+def format_json_object(json_config, json_object_raw, prefix_columns=None):
     """
-    Compare Json_object with reference json(json_config) and generate JSON Object
+    Prior : 
+    Filter Result Keys
+    Append addtional columns
+    Compare all objects in JSON List with reference json(json_config) and generate list
     1. Flatten the object
     2. Get Keys of reference JSON
     3. Iterate over reference JSON keys and generate result row
     4. Update result rows with not found keys (Extra Columns)
     :param json_config -reference json
-    :param json_object_raw  - json object to be formatted
-    :return: return json object formated in line with json_config
+    :param json_object_raw  - SingleOjbect
+    :param required_only  - if interest is only in required only attributes
+    :param prefix_columns  -if addtional prefix columns you want to add in response
+    :return: return json object list formatted in line with json_config
     """
+    result_json_list = []
     json_config_keys = json_config.keys()
-    # 2 Flatten the object
+    First_record = True
+    # 1 Take each object in list
+    # 1 Outer Loop
+    # if json_object_list is zero size loop will not execute
+        # 2 Flatten the object
     json_object = flatten_json(json_object_raw)
     result_row = {}
     keys_present_list = []
-    # 3. Get keys of reference JSON
+    # 3 Append Prefix columns values like Account, Region
+    if prefix_columns:
+        for prefix_column_header in prefix_columns.keys():
+            result_row[prefix_column_header] = prefix_columns[prefix_column_header]
+    # 4. Get keys of reference JSON
     json_object_keys = json_object.keys()
-    # 4 Go Through All the keys of reference JSON
+    # 5 Go Through All the keys of reference JSON
     for json_config_key in json_config_keys:
         if json_config_key in json_object_keys:
             result_row[json_config_key] = str(json_object[json_config_key])
             keys_present_list.append(json_config_key)
         else:
             result_row[json_config_key] = ""
-    # 5. Append Extra Cloumns as pipe seprated Key/Value
-    extra_rows = [i for i in json_object_keys if i not in keys_present_list]
+    # 6. Append Extra Cloumns as pipe seprated Key/Value
+    extra_rows = [
+        i for i in json_object_keys if i not in keys_present_list]
     for extra_row_key in extra_rows:
         result_row[extra_row_key] = "{}|{}".format(
             extra_row_key, json_object[extra_row_key])
-
-    return result_row
+    # 7 None of key matches for first row raise and exception as it's not valid JSON
+    if First_record:
+        if len(keys_present_list) == 0:
+            raise ValueError(
+                "Zero record keys are matching. Check the JSON result is appropriate format")
+    First_record = False
+    result_json_list.append(result_row)
+    return result_json_list
 
 
 def get_csv_data(result_json_list):

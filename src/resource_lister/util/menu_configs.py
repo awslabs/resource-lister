@@ -260,6 +260,15 @@ config_generator_util_config = [{
 ]
 
 
+config_generator_upload_service_config = [{
+    "id": "input_file_path",
+    "display_prompt": "Please specify the complete service config file [example C:\\abc\\configs\\service_name.json].",
+    "is_mandatory": "yes",
+    "validation_functions": ["validate_mandatory","check_dir_path"]
+}
+
+]
+
 config_generator_menu_config = {
     "menu": {
         "0": {
@@ -269,6 +278,11 @@ config_generator_menu_config = {
                 {"display_name": "Generate service configuration files.",
                  "action": "True",
                  "function_name": "process_config_files"
+
+                 },
+                 {"display_name": "Upload service configuration file.",
+                 "action": "True",
+                 "function_name": "upload_config_file"
 
                  }
             ]

@@ -109,8 +109,31 @@ def __process_response(function_config, json_config, format_type, required_only,
                 final_result.extend(json_util.format_json_list(json_config, json_util.format_response_for_result_keys(
                     result, result_keys), required_only, prefix_columns))
     elif response_format == "FORMAT_1":
-        final_result = json_util.format_json_object(json_config, response)
-
+        # FORMAT_1 Shouldn't support Pagination but still boto3 allows so to handle that scenario.
+        if pagination:
+            for item in response:
+                result = item["result"]
+                #This is to handle multi region scenario.
+                for obj in result:
+                    if isinstance(obj, dict):
+                        prefix_columns = None
+                        if "prefix_columns" in item.keys():
+                            prefix_columns = item["prefix_columns"]
+                        final_result.extend(json_util.format_json_object(
+                            json_config, json_util.format_response_for_result_keys(
+                                result, result_keys), prefix_columns))   
+        else:
+            for item in response:
+                result = item["result"]
+                #This is to handle multi region scenario.
+                if isinstance(result, dict):
+                    prefix_columns = None
+                    if "prefix_columns" in item.keys():
+                        prefix_columns = item["prefix_columns"]
+                    final_result.extend(json_util.format_json_object(
+                        json_config, json_util.format_response_for_result_keys(
+                            result, result_keys), prefix_columns))
+                
     elif response_format == "FORMAT_3":
         # if pagination then get extended loop
         if pagination:

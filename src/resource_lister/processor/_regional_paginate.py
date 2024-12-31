@@ -85,12 +85,15 @@ def process_region_list_pagination(_session, account, _region, service_name, fun
         result['prefix_columns'] = prefix_columns
         result['result'] = object_list
     except botocore.exceptions.ClientError as error:
-        logger.error("In valid attributes {}".format(pagination_attributes))
+        logger.debug("ERROR {}".format(error))
+        logger.debug("Service {}".format(service_name))
+        logger.debug("Function Name {}".format(function_name))
+        logger.debug("Pagination_attributes {}".format(pagination_attributes))
         # Invalid attributes throws client errors
         result['prefix_columns'] = prefix_columns
         result['result'] = object_list
     except botocore.exceptions.ParamValidationError as error:
-        logger.error(error)
+        logger.debug("ERROR {}".format(error))
         raise ValueError(
             'The parameters you provided are incorrect: {}'.format(error))
     return result

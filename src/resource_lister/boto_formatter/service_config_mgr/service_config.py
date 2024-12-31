@@ -36,8 +36,8 @@ def get_service_name(file_name):
 class ServiceConfig():
     """ This class hold the  values from service_configs"""
     __data = {}
-    __service_functions_dict= dict()
-    __services_names= []
+    __service_functions_dict = dict()
+    __services_names = []
 
     @classmethod
     def load_all_service_data(cls):
@@ -175,4 +175,54 @@ class ServiceConfig():
                 json_response_required[key] = json_response[key]
         function_details["json_response_required"] = json_response_required
         return function_details
+    
+    @classmethod
+    def add_service_config(cls,json_data) -> None:
+        """
+        add_service_config 
+        :param json_data: data in Json format
+        :return: complete path of account_config.json
+        """
+        dir_path = os.path.dirname(os.path.abspath(__file__))
+        if service_config_validator(json_data):
+            file_name = "{}.json".format(json_data["service_name"])
+            file_path = os.path.join(dir_path, "service_configs", file_name)
+            json_object = json.dumps(json_data, indent=4, default=str)
+            # Writing to sample.json
+            with open(file_path, "w") as outfile:
+                outfile.write(json_object)
+            ServiceConfig.load_all_service_data()
+
+
+def service_config_validator(json_data):
+    """
+    This could be optimized 
+    Currently manually validating the schema
+    """
+    is_valid = True
+    validator_keys = ["implclass","function_name","function_description","boto_session_type","response_format","function_type",
+                         "is_regional","pagination_support","implfunction","validation_functions"]
+    try:
+        if "service_name" in json_data.keys():
+            if "functions" in json_data.keys():
+                service_functions = json_data["functions"]
+                for service_function in service_functions:
+                    service_function_keys_arry = list(service_function.keys())
+                    for key in validator_keys:
+                        if key.strip() not in service_function_keys_arry:
+                            is_valid = False
+                            print(" Attribute {} is missing in function {}".format(key,service_function["function_name"])) 
+            else:
+                is_valid = False
+                print("[functions] attribute is missing")                            
+        else:
+            is_valid = False
+            print("[service_name]  attribute is missing")
+    except KeyError as err:
+        print("Please check service_config.json file . File syntax is not correct.")
+        print(err)
+    return is_valid
+
+
+
     

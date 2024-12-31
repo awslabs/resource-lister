@@ -5,6 +5,7 @@ import logging
 import resource_lister.boto_formatter.json_util.json_util as json_util
 import resource_lister.util.menu_util as menu_util
 import resource_lister.util.menu_configs as config_menu_configs
+from resource_lister.boto_formatter.service_config_mgr.service_config import ServiceConfig
 # Set up our logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
@@ -23,6 +24,22 @@ def process_config_files():
         print("[END] : Processing config files ....")
     except Exception as err:
         print(f"Unexpected {err=}, {type(err)=}")
+
+
+def upload_config_file():
+    input_json = dict()
+    input_json_value = menu_util.process_inputs(config_menu_configs.config_generator_upload_service_config, input_json)
+    input_file_path = input_json_value["input_file_path"].strip()
+    try:
+        print(f"[START] : Uploading config file {input_file_path} ....")
+        with open(input_file_path) as f:
+            json_data = json.load(f)
+            ServiceConfig.add_service_config(json_data)
+
+        print(f"[END] : Uploaded Service config file {input_file_path} ....")
+    except Exception as err:
+        print(f"Unexpected {err=}, {type(err)=}")
+
 
 
 # def get_service_name(file_name):
@@ -62,7 +79,7 @@ def generate_config_files(service_name, input_directory, output_directory):
         with open(output_file_path, "w") as outfile:
             outfile.write(json_object)
     except KeyError as err:
-        print("Please check service_config.json file . File syntax is not correct.")
+        print("Please check uploaded <service_name>.json file . File syntax is not correct.")
         raise err
     except FileNotFoundError as err:
         print(

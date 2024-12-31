@@ -551,7 +551,11 @@ Utility will create output folder and generate the .csv file with list of s3 buc
 </tbody>
 <table>
 
+## Expanding Resource Lister Capabilities: Adding Support for Additional AWS Services and Functions
+Resource Lister currently supports listing and describing resources for 38 common AWS services, with approximately 100 related functions. However, Boto3 provides access to over 350 AWS services with more than 3,500 functions just for listing and describing resources. This article demonstrates how Resource Lister can be easily extended to support additional AWS services beyond the 38 currently enabled. By creating a one-time configuration file per service Resource Lister will automatically detect, any of the 350+ services and 3,500+ describe/list functions in Boto3 can be added with minimal effort. This configuration file approach allows Resource Lister's capabilities to be expanded as needed to leverage all AWS services Boto3 supports.
 
+
+[How to Expand the Capabilities of the Resource Lister](https://github.com/awslabs/resource-lister/blob/main/docs/new_service_config.md)
 
 
 

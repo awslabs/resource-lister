@@ -8,7 +8,7 @@ from resource_lister.util.s3_util import S3Uploader
 from resource_lister.boto_formatter.service_formatter import service_response_formatter
 import logging
 import datetime
-logging.basicConfig(level=logging.ERROR)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
@@ -66,12 +66,12 @@ def process_global_list(_session, _account, service_name, function_name, current
         result['prefix_columns'] = prefix_columns
         result['result'] = object_list
     except botocore.exceptions.ClientError as error:
-        logger.error("In valid attributes {}".format(pagination_attributes))
+        logger.debug("ERROR {}".format(error))
         # Invalid attributes throws client errors
         result['prefix_columns'] = prefix_columns
         result['result'] = object_list
     except botocore.exceptions.ParamValidationError as error:
-        logger.error(error)
+        logger.debug("ERROR {}".format(error))
         raise ValueError(
             'The parameters you provided are incorrect: {}'.format(error))
     return result

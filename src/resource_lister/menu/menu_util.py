@@ -88,7 +88,7 @@ class MenuData():
 
     @classmethod
     def get_service_list(cls):
-        if len(MenuData.__service_list) == 0:
+        if MenuData.__service_list is None:
             MenuData.load_data()
         return MenuData.__service_list
 

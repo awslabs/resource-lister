@@ -260,5 +260,5 @@ def check_dir_path(dir_path, display_prompt):
     dir_path = dir_path.strip()
     if not os.path.exists(dir_path):
         _validation_error = True
-        __message = "Directory path {} does not exist.".format(dir_path)
+        __message = "Directory or file path {} does not exist.".format(dir_path)
     return _validation_error, __message

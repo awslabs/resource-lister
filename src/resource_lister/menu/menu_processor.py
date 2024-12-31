@@ -12,10 +12,11 @@ OUTPUT_DIVIDER = '''
 '''
 
 DISCLAIMER = '''
-Disclaimer: This is a Python interactive utility for listing AWS resources across AWS accounts and accross regions. 
+Disclaimer: This is a Python interactive utility for listing AWS resources across AWS accounts. 
 Caution: To generate the list of AWS resources, 
 this utility will make boto3 List API calls on the configured accounts. 
 These API calls will count towards your API account quotas and throttling limits.
+Please be aware of the potential impact on your account before running this utility in critical workload.
 Version : V2.0
 '''
 
@@ -133,6 +134,7 @@ def process_help():
         elif input_value == "8":
             print_line()
             setup.generate_configfiles_setup()
+            menu_util.MenuData.load_data()
             print_line()
 
         else:
@@ -195,6 +197,8 @@ def process_input():
                 print("Please configure Master Account")
             elif str(e) =="Please enter valid service":
                 print("Please enter valid service")
+            else:
+                print("ERROR {}".format(str(e)))
 
 
 
